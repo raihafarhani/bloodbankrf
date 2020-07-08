@@ -138,7 +138,7 @@ tbody{font-size:80%;}
 		
 		<div class="tab-content" id="myTabContent">
 			<div class="tab-pane fade show active" id="list" role="tabpanel" aria-labelledby="list-tab">
-				<div class="card" style="width:1500px">
+				<div class="card" style="width:1100px">
 					<div class="card-header bg-danger text-white">
 						<h4>Donor List</h4>
 					</div>

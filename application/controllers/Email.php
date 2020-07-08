@@ -7,12 +7,12 @@ class Email extends CI_Controller {
   parent::__construct();
   $this->load->model('Model_email');
  }
-
- //function index()
- //{
-  //$data['employee_data'] = $this->multiple_delete_model->fetch_data();
- // $this->load->view('multiple_delete', $data);
- //}
+ function index()
+ {
+     
+     $this->load->view('email');
+ }
+ 
 
  function email_all()
  {
@@ -26,7 +26,7 @@ class Email extends CI_Controller {
   }
  }
  
- function send() {
+ function email() {
     $this->load->config('email');
     $this->load->library('email');
     
@@ -46,6 +46,21 @@ class Email extends CI_Controller {
     } else {
         show_error($this->email->print_debugger());
     }
-}
-}
+  }
+
+    public function send() 
+        {
+            //the subject
+            $sub = "Hospital Jasin's Blood Bank";
+            //the message
+            $msg = "Dear Mr/Mrs, 
+            Our blood bank is in very short supply. Therefore, please come to your nearest hospital to make donation.
+            Thank you very much.";
+            //recipient email here
+            $rec = "raihafarhani98@gmail.com";
+            //send email
+            mail($rec,$sub,$msg);
+
+        }
+    }
 ?>

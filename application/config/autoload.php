@@ -135,5 +135,6 @@ $autoload['language'] = array();
 $autoload['model'] = array('Model_crud', 'Model_bcrud', 'Model_register',
                            'Model_staffregister', 'Model_dcrud', 'Model_loginstaff', 'Model_logindonor',
                            'Model_chart', 'Model_donorA', 'Model_donorAA', 'Model_donorAABB', 'Model_donorAB', 
-                           'Model_donorB', 'Model_donorBB', 'Model_donorO', 'Model_donorOO', 'Model_stock', 'Dynamic_chart_model'  );
+                           'Model_donorB', 'Model_donorBB', 'Model_donorO', 'Model_donorOO', 'Model_stock', 
+                           'Dynamic_chart_model', 'Model_email'  );
 

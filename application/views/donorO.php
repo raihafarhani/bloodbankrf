@@ -143,9 +143,10 @@ tr:nth-child(even) {
                    <td>Edit or Delete</td>
                    </tr>  
                    <?php
-$no = 1; 
-echo $this->db->last_query();
-foreach ($result as $r) { ?>
+                   
+                    $no = 1; 
+                    echo $this->db->last_query();
+                    foreach ($result as $r) { ?>
                    <tr>
                    <td><input type="checkbox" class="checkbox"> </td>
                    <td><?php echo $no++ ?></td>

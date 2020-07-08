@@ -1,7 +1,11 @@
 <?php
 
-class Multiple_email extends CI_Model
+class Model_email extends CI_Model
 {
+    public function __construct()
+	{
+		$this->load->database();
+	}
  function fetch_data()
  {
   $this->db->select("*");

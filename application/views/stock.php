@@ -2,60 +2,29 @@
 <html lang="en">
 <head>
    <meta charset="UTF-8">
-   <meta name="viewport" content="width-device-width, initial-scale=1.0">
+   <meta name="viewport" initial-scale="1.0">
    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
-   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-   <title>Stock</title>
-  <!-- Bootstrap core JavaScript-->
-  <script src="<?= base_url('assets/'); ?>vendor/jquery/jquery.min.js"></script>
-  <script src="<?= base_url('assets/'); ?>vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-  <!-- Core plugin JavaScript-->
-  <script src="<?= base_url('assets/'); ?>vendor/jquery-easing/jquery.easing.min.js"></script>
-
-  <!-- Custom scripts for all pages-->
-  <script src="<?= base_url('assets/'); ?>js/sb-admin-2.min.js"></script>
-
+   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
+<title>Stock</title>
   <!--JQUERY-->
 	<script
 		src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
 
 	<!-- FRAMEWORK BOOTSTRAP para el estilo de la pagina-->
 	<link rel="stylesheet"
 		href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 	<script
 		src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-	<script 
-		src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-	<script 
-		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-	
-	<!-- Los iconos tipo Solid de Fontawesome-->
-	<link rel="stylesheet"
-		href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css">
-	<script src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
-	
-	<!-- Nuestro css-->
-	<link rel="stylesheet" type="text/css" href="static/css/user-form.css"
-		th:href="@{/css/user-form.css}">
-	<!-- DATA TABLE -->
-	<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
-	<script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.css">	
-	<link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css">
 
-</head>
+	
+	
+  <script>
+  
+      </script>
+ </head>
 <body>
-   
 
-
-	</script>
     <style>
 	
     /* Use a media query to add a break point at 800px: */
@@ -71,7 +40,17 @@
         margin-bottom: 10px; /* Added */
 		 text-align: center;
 }
-
+.button {
+  background-color: red; 
+  border: none;
+  color: white;
+  padding: 10px 32px;
+  text-align: center;
+  position: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+}
 body{
 	background-color: #FFFFFF;
 	margin-top: 90px;
@@ -91,6 +70,8 @@ body{
   <div class="w3-bar w3-card w3-left-align w3-large w3-red">
     <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-red" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
     <a href="<?php echo site_url('index.php/mstaff') ?>" class="w3-bar-item w3-button w3-padding-large w3-white">Home</a>
+    <a href="<?php echo site_url('index.php/yearly') ?>" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Yearly Stock</a>
+    
     <a href="<?php echo site_url('index.php/staff') ?>" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Staff</a>
     <a href="<?php echo site_url('index.php/blood') ?>" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Blood</a>
     <a href="<?php echo site_url('index.php/donor') ?>" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Donor</a>
@@ -106,56 +87,53 @@ body{
 </div> 
 </div>
 <?php
-  $connection = mysqli_connect("localhost", "root", "", "crud");
-  $BloodType = mysqli_query($connection, "SELECT BloodType FROM blood");
-  $total = mysqli_query($connection, "SELECT * , COUNT(BloodID) as total FROM blood");
-?>
-  <div class="container">
-  <canvas id="myChart" width="400" height="200" style="position: center"></canvas>
+        if(isset($_POST['button'])) { 
+          echo "Email Sent"; 
+      } 
+         
+    ?>  
+<form method="post">
+        <input type="submit" class="button" name="button" value="Email"/>
+        </form> 
+        
+
+  <div class="chart-container">
+  <canvas id="bar-chartcanvas" width="850%" height="500%" style="position: center"></canvas>
   </div>
   
   <script>
-  let myChart = document.getElementById('myChart').getContext('2d');
- 
- // Global Options
-    Chart.defaults.global.defaultFontFamily = 'Lato';
-    Chart.defaults.global.defaultFontSize = 18;
-    Chart.defaults.global.defaultFontColor = '#777';
+    $(document).ready(function () {
+ showTotalGraph();
+});
 
-    let barChart = new Chart(myChart, {
-      type:'bar', // bar, horizontalBar, pie, line, doughnut, radar, polarArea
-      data:{
-        labels:['A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-'],
-      datasets:[{
-        label:'Stock',
-          data:[
-            <?php if (count($graph)>0) {
-                foreach ($graph as $data) {
-                  echo $data->BloodID . ", ";
-                }
-              }
-           ?>],
-          
-          backgroundColor:['red','red','blue','blue','blue','blue','blue','blue'],
-          borderWidth:1,
-          borderColor:'#777',
-          hoverBorderWidth:3,
-          hoverBorderColor:'#000'
-          
-        }]
+function showTotalGraph(){
+	   // This is the database.php file we created earlier, its JSON output will be processed in this function
+     $.post("Stock/data",
+    function (data){
+       var jsonData = JSON.parse(data);
+       // alert(jsonData[0].BloodType);
+        // Declare the variables for your graph (for X and Y Axis) 
+        var BloodTypeVar = []; // X Axis Label
+        var total = []; // Value and Y Axis basis
 
-        //color: function(context) {
-    //var index = context.dataIndex;
-    //var value = context.dataset.data[index];
-    //return value < 0 ? 'red' :  // draw negative values in red
-        //index % 2 ? 'blue' :    // else, alternate values in blue and green
-        //'green';}
-      },
-      options:{
+        for (var i = 0; i < Object.keys(jsonData).length; i++) {
+            // formStatus is taken from JSON output (see above)
+            BloodTypeVar.push(jsonData[i].BloodType);
+            total.push(jsonData[i].total);
+        }
+
+       var options={
         title:{
           display:true,
           text:'Blood Stock',
-          fontSize:25
+          fontSize:18
+        },
+        layout:{
+          padding:{
+            left:50,
+            right:0,
+            bottom:0,
+            top:0}
         },
         legend:{
           display:true,
@@ -163,29 +141,87 @@ body{
           labels:{
             fontColor:'#000'
           }
+          
         },
-        layout:{
-          padding:{
-            left:50,
-            right:0,
-            bottom:0,
-            top:0
-            
+        scales: {
+        yAxes: [{
+          scaleLabel: {
+            display: true,
+            labelString: 'Number of bags'
+          },
+          ticks: {
+                beginAtZero: true
+            }
+        }],
+        xAxes: [{
+          scaleLabel: {
+            display: true,
+            labelString: 'Blood Type'
           }
-        },
-        tooltips:{
-          enabled:true
-        },
-        scales:{
-          scales:{yAxes: [{beginAtZero: true}], xAxes: [{autoskip: true, maxTicketsLimit: 20}]
-        }
-        },
-        ticks: {
-        min: 0,
-        max: 20
-        }
-      }
+        }]
+      }     
+      };
+     
+  var chartColors = {
+    red: 'rgb(252, 4, 11)',
+    green: 'rgb(13, 170, 11)',
+    yellow: 'rgb(252, 254, 11)'
+}
+
+var chartdata = {
+ labels:BloodTypeVar,
+    datasets: [{
+      label: 'Critical',
+      backgroundColor: [chartColors.red],
+      borderWidth:1,
+      borderColor:'#777',
+      hoverBorderWidth:3,
+      data: total
+    }]
+  };
+      
+  var graphTarget = $("#bar-chartcanvas"); 
+        var barGraph = new Chart(graphTarget, {
+            type: 'bar',
+            data: chartdata,
+            options: options
+  });
+  var colorChangeValue = 4; //set this to whatever is the deciding color change value
+  var dataset = barGraph.data.datasets[0];
+  for (var i = 0; i < dataset.data.length; i++) {
+    if (dataset.data[i] < colorChangeValue) {
+      dataset.backgroundColor[i] = chartColors.red;
+      <?php
+        //the subject
+        $sub = "Hospital Jasin's Blood Bank";
+        //the message
+        $msg = "Dear Mr/Mrs, 
+        Our blood bank is in very short supply. Therefore, please come to your nearest hospital to make donation.
+        Thank you very much.";
+        //recipient email here
+        $rec = "raihafarhani98@gmail.com";
+        //send email
+        mail($rec,$sub,$msg);
+        ?>
+    }
+    else if ((dataset.data[i] >=4) && (dataset.data[i] < 5)){
+      dataset.backgroundColor[i] = chartColors.yellow;
+      
+    }
+    else{
+    dataset.backgroundColor[i] = chartColors.green;
+    }
+}
+barGraph.update();
     });
+}
+
+
+
+
+      
   </script>
  
 </body>
+
+ 

@@ -69,7 +69,7 @@ class Donor extends CI_Controller {
 		$ContactNum = $_POST['ContactNum'];
         $Address = $_POST['Address'];
         $BloodType = $_POST['BloodType'];
-        $data = array('DonorID' => $DonorID, 'FName' => $FName, 'LName' => $LName, 'DonorPass' => $DonorPass, 'ICNum' => $ICNum, 'ContactNum' => $ContactNum, 
+        $data = array('FName' => $FName, 'LName' => $LName, 'DonorPass' => $DonorPass, 'ICNum' => $ICNum, 'ContactNum' => $ContactNum, 
                       'Email' => $Email, 'Address' => $Address, 'BloodType' => $BloodType);
 		$edit = $this->Model_dcrud->dataEdit('donor', $data, $id);
         if($edit > 0){

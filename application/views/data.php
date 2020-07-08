@@ -1,15 +1,5 @@
 <?php
-
-class Model_stock extends CI_Model
-{
-    public function __construct()
-	{
-		$this->load->database();
-	}
- 
-	public function graph()
-	{
-        //header('Content-Type: application/json');
+//header('Content-Type: application/json');
         //declare variables for db connection
         $servername = "localhost";
         $username = "root";
@@ -40,15 +30,5 @@ class Model_stock extends CI_Model
         // IMPORTANT, output to json
         //echo json_encode($data);    
         return json_encode($data);
-	}
-	public function emailUser($table_name, $data)
-	{
-		$email = $this->db->email($table_name, $data);
-		return $email;
-	
-	}
 
-	 
-	
-}
 ?>
