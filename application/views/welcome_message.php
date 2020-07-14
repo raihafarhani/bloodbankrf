@@ -29,9 +29,9 @@
 
   .navbar-nav{
     background-color: #800000; 
-    color: #FFFFFF; 
+    color: white; 
     font-family: 'Nunito', sans-serif;
-    position: 'center';
+    right: 0%;
   }
 
   .nav{
@@ -67,7 +67,8 @@ body{
 
 <div class="jumbotron text-center" style="margin-bottom:0">
   <h1>Blood Bank</h1>
-  <p>Let's Donate!</p> 
+  <p>Let's Donate!</p>
+ 
 </div>
 
 <nav class="navbar navbar-inverse">

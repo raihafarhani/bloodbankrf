@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Stock extends CI_Controller {
+class Stock7 extends CI_Controller {
 
 	function __construct()
 	{
@@ -13,7 +13,7 @@ class Stock extends CI_Controller {
 	function index()
 	{
 		$data['graph'] = $this->Model_stock->graph();
-		$this->load->view('stock');
+		$this->load->view('stock7');
 	}
 
   public function email() 
@@ -95,9 +95,8 @@ class Stock extends CI_Controller {
         if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
         } 
-		$sql = "SELECT BloodType, COUNT(BloodType) AS total 
-				FROM blood GROUP BY BloodType ORDER BY BloodType;";
-
+        $sql = "SELECT BloodType, COUNT(BloodType) AS total 
+        FROM blood WHERE MONTH(DateIn) = '7' GROUP BY BloodType ORDER BY BloodType;";
         //run sql query and store into variable
         $result = mysqli_query($conn,$sql);
         $data = array();
@@ -112,13 +111,7 @@ class Stock extends CI_Controller {
         // IMPORTANT, output to json
         echo json_encode($data);    
         //return json_encode($data);
-  }
-  
-  public function logout()
-  {
-      $this->session->sess_destroy();
-      redirect('index.php/welcome');
-  }
+	}
 	
 	
 }

@@ -5,7 +5,7 @@
    <meta name="viewport" initial-scale="1.0">
    <meta http-equiv="X-UA-Compatible" content="ie=edge">
    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
-<title>Stock</title>
+<title>July Stock</title>
   <!--JQUERY-->
 	<script
 		src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -38,8 +38,7 @@
         margin: 0 auto; /* Added */
         float: none; /* Added */
         margin-bottom: 10px; /* Added */
-		    text-align: center;
-        
+		 text-align: center;
 }
 .button {
   background-color: red; 
@@ -51,14 +50,14 @@
   text-decoration: none;
   display: inline-block;
   font-size: 14px;
-  position:relative; left:100px; top:2px;
 }
 body{
 	background-color: #FFFFFF;
+    position: center;
 	margin-top: 90px;
 	margin-bottom: 30px;
 	margin-left: 0px;
-	margin-right: 500px;
+	margin-right: 100px;
 }
 .center {
   margin: 0;
@@ -147,13 +146,13 @@ body{
         <a href="#" class="w3-bar-item w3-button">June</a>
         <a href="<?php echo site_url('index.php/stock7') ?>" class="w3-bar-item w3-button">July</a>
         </div>
-        </div>
+      </div>
     </div>
-    <a href="<?php echo site_url('index.php/stock/logout/') ?>" class="w3-bar-item w3-button w3-padding-large w3-white right">Logout</a>
-    
+    <a href="<?php echo site_url('index.php/welcome_message') ?>" class="fa fa-sign-out" style="font-size:24px"></a>
 </div>
 </div> 
 </div>
+
 <!-- <form action="" method="post"> -->
 <button class="button" id="email" name="email">Email</button>
 <!-- </form> -->
@@ -172,16 +171,16 @@ body{
         });
 </script>  
 
-
+  
   <div class="chart-container">
   <canvas id="bar-chartcanvas" width="850%" height="500%" style="position: center"></canvas>
 
  </div>
-  
-  <script>
+
+   <script>
     $(document).ready(function () {
-    showTotalGraph();
-    });
+ showTotalGraph();
+});
 
     function showTotalGraph(){
 	   // This is the database.php file we created earlier, its JSON output will be processed in this function
@@ -248,7 +247,7 @@ body{
 var chartdata = {
  labels:BloodTypeVar,
     datasets: [{
-      label: 'Sufficient',
+      label: 'Critical',
       backgroundColor: [chartColors.red],
       borderWidth:1,
       borderColor:'#777',
@@ -263,7 +262,6 @@ var chartdata = {
             data: chartdata,
             options: options
   });
-  msg = " Warning ! A-, O- and AB+ is low in stock";
   var colorChangeValue = 4; //set this to whatever is the deciding color change value
   var dataset = barGraph.data.datasets[0];
   for (var i = 0; i < dataset.data.length; i++) {
@@ -273,7 +271,7 @@ var chartdata = {
     }
     else if ((dataset.data[i] >=4) && (dataset.data[i] < 5)){
       dataset.backgroundColor[i] = chartColors.yellow;
-     alert (msg);
+      
     }
     else{
     dataset.backgroundColor[i] = chartColors.green;
@@ -281,10 +279,9 @@ var chartdata = {
 }
 barGraph.update();
     });
-
-    
 }
 </script>
+
 
  
 </body>
