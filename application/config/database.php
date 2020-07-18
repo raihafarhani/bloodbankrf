@@ -71,6 +71,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | the query builder class.
 */
 $active_group = 'default';
+//Add this to fetch the CLEARDB_DATABASE_URL
+//$url = parse_url(getenv("CLEARDB_DATABASE_URL"));
 $query_builder = TRUE;
 $db['default'] = array(
     'dsn'    => '',

@@ -151,6 +151,14 @@ tbody{font-size:80%;}
 
 /* Change the background color of the dropdown button when the dropdown content is shown */
 .dropdown:hover .dropbtn {background-color: #3e8e41;}
+.right {
+   position: absolute;
+   right: 10px;
+   
+            }
+			.nav-link {
+    color: white;
+}
 </style>
  
 <body>
@@ -158,25 +166,12 @@ tbody{font-size:80%;}
 <div class="w3-top">
   <div class="w3-bar w3-card w3-left-align w3-large w3-red">
     <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-red" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
-    <a href="<?php echo site_url('index.php/mstaff') ?>" class="w3-bar-item w3-button w3-padding-large w3-white">Home</a>
-    <a href="<?php echo site_url('index.php/staff') ?>" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Staff</a>
-    <a href="<?php echo site_url('index.php/blood') ?>" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Blood</a>
-    <div class="w3-dropdown-hover">
-    <button class="w3-button">Donor</button>
-    <div class="w3-dropdown-content w3-bar-block w3-border">
-    <a href="<?php echo site_url('index.php/donor') ?>" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">All</a>
-    <a href="<?php echo site_url('index.php/donorAA') ?>" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">A+</a>
-    <a href="<?php echo site_url('index.php/donorA') ?>" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">A-</a>
-    <a href="<?php echo site_url('index.php/donorAABB') ?>" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">AB+</a>
-    <a href="<?php echo site_url('index.php/donorAB') ?>" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">AB-</a>
-    <a href="<?php echo site_url('index.php/donorBB') ?>" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">B+</a>
-    <a href="<?php echo site_url('index.php/donorB') ?>" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">B-</a>
-    <a href="<?php echo site_url('index.php/donorOO') ?>" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">O+</a>
-    <a href="<?php echo site_url('index.php/donorO') ?>" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">O-</a>
-    </div>
-    </div>
-    <div class="w3-dropdown-hover">
-    <button class="w3-button">Stock</button>
+    <a class="w3-bar-item w3-button w3-padding-large w3-white">Admin</a>
+   <a href="<?php echo site_url('index.php') ?>" class="w3-bar-item w3-button w3-padding-large right w3-hover-white">Logout</a>
+   <a href="<?php echo site_url('index.php/staff') ?>" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Staff</a>
+   <a href="<?php echo site_url('index.php/blood') ?>" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Blood</a>
+   <div class="w3-dropdown-hover">
+    <button class=" w3-button w3-hide-small w3-padding-large w3-hover-white">Stock</button>
     <div class="w3-dropdown-content w3-bar-block w3-border">
         <a href="<?php echo site_url('index.php/yearly') ?>" class="w3-bar-item w3-button">Yearly</a>
         <button class="w3-button">Month</button>
@@ -186,8 +181,9 @@ tbody{font-size:80%;}
         <a href="#" class="w3-bar-item w3-button">June</a>
         <a href="<?php echo site_url('index.php/stock7') ?>" class="w3-bar-item w3-button">July</a>
         </div>
-        </div>
+      </div>
     </div>
+    
 </div>
 </div> 
 </div>
@@ -195,11 +191,11 @@ tbody{font-size:80%;}
     <div class="flex-center position-ref full-height">
 	<div class="container">
 	<div class="mx-auto col-sm-8 main-section" id="myTab" role="tablist">
-		<ul class="nav nav-pills nav-justified">
-			<li class="nav-item">
+		<ul class="nav nav-tabs nav-justified">
+			<li class="nav-item bg-danger">
 			<a class="nav-link" id="list-tab" data-toggle="tab" href="#list" role="tab" aria-controls="list" aria-selected="false">List</a>
 			</li>
-			<li class="nav-item">
+			<li class="nav-item bg-danger">
 			<a class="nav-link" id="form-tab" data-toggle="tab" href="#form" role="tab" aria-controls="form" aria-selected="true">Add Donor</a>				   	
 			</li>
 		</ul>

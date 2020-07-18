@@ -123,21 +123,20 @@ body{
 <div class="w3-top">
   <div class="w3-bar w3-card w3-left-align w3-large w3-red">
     <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-red" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
-    <a class="w3-bar-item w3-button w3-padding-large w3-white">Admin</a>
+    <a class="w3-bar-item w3-button w3-padding-large w3-white">Staff</a>
    <a href="<?php echo site_url('index.php') ?>" class="w3-bar-item w3-button w3-padding-large right w3-hover-white">Logout</a>
-   <a href="<?php echo site_url('index.php/staff') ?>" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Staff</a>
-   <a href="<?php echo site_url('index.php/blood') ?>" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Blood</a>
-   <a href="<?php echo site_url('index.php/donor') ?>" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Donor</a>
+   <a href="<?php echo site_url('index.php/staffblood') ?>" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Blood</a>
+   <a href="<?php echo site_url('index.php/staffdonor') ?>" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Donor</a>
     <div class="w3-dropdown-hover">
     <button class=" w3-button w3-hide-small w3-padding-large w3-hover-white">Stock</button>
     <div class="w3-dropdown-content w3-bar-block w3-border">
-        <a href="<?php echo site_url('index.php/yearly') ?>" class="w3-bar-item w3-button">Yearly</a>
+        <a href="<?php echo site_url('index.php/staffyearly') ?>" class="w3-bar-item w3-button">Yearly</a>
         <button class="w3-button">Month</button>
         <div class="w3-dropdown-content w3-bar-block w3-border">
-        <a href="<?php echo site_url('index.php/stock') ?>" class="w3-bar-item w3-button">April</a>
+        <a href="<?php echo site_url('index.php/staffstock') ?>" class="w3-bar-item w3-button">April</a>
         <a href="#" class="w3-bar-item w3-button">May</a>
         <a href="#" class="w3-bar-item w3-button">June</a>
-        <a href="<?php echo site_url('index.php/stock7') ?>" class="w3-bar-item w3-button">July</a>
+        <a href="<?php echo site_url('index.php/staffstock7') ?>" class="w3-bar-item w3-button">July</a>
         </div>
       </div>
     </div>

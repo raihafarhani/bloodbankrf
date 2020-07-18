@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Stock7 extends CI_Controller {
+class Staffstock7 extends CI_Controller {
 
 	function __construct()
 	{
@@ -13,7 +13,7 @@ class Stock7 extends CI_Controller {
 	function index()
 	{
 		$data['graph'] = $this->Model_stock7->graph();
-		$this->load->view('stock7');
+		$this->load->view('staffstock7');
 	}
 
   public function email() 

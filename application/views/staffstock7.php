@@ -5,7 +5,7 @@
    <meta name="viewport" initial-scale="1.0">
    <meta http-equiv="X-UA-Compatible" content="ie=edge">
    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
-<title>2019 Stock</title>
+<title>July Stock</title>
   <!--JQUERY-->
 	<script
 		src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -50,14 +50,14 @@
   text-decoration: none;
   display: inline-block;
   font-size: 14px;
-  position:relative; left:100px; top:2px;
 }
 body{
 	background-color: #FFFFFF;
+    position: center;
 	margin-top: 90px;
 	margin-bottom: 30px;
 	margin-left: 0px;
-	margin-right: 500px;
+	margin-right: 100px;
 }
 .center {
   margin: 0;
@@ -123,21 +123,20 @@ body{
 <div class="w3-top">
   <div class="w3-bar w3-card w3-left-align w3-large w3-red">
     <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-red" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
-    <a class="w3-bar-item w3-button w3-padding-large w3-white">Admin</a>
+    <a class="w3-bar-item w3-button w3-padding-large w3-white">Staff</a>
    <a href="<?php echo site_url('index.php') ?>" class="w3-bar-item w3-button w3-padding-large right w3-hover-white">Logout</a>
-   <a href="<?php echo site_url('index.php/staff') ?>" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Staff</a>
-   <a href="<?php echo site_url('index.php/blood') ?>" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Blood</a>
-   <a href="<?php echo site_url('index.php/donor') ?>" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Donor</a>
+   <a href="<?php echo site_url('index.php/staffblood') ?>" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Blood</a>
+   <a href="<?php echo site_url('index.php/staffdonor') ?>" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Donor</a>
     <div class="w3-dropdown-hover">
     <button class=" w3-button w3-hide-small w3-padding-large w3-hover-white">Stock</button>
     <div class="w3-dropdown-content w3-bar-block w3-border">
-        <a href="<?php echo site_url('index.php/yearly') ?>" class="w3-bar-item w3-button">Yearly</a>
+        <a href="<?php echo site_url('index.php/staffyearly') ?>" class="w3-bar-item w3-button">Yearly</a>
         <button class="w3-button">Month</button>
         <div class="w3-dropdown-content w3-bar-block w3-border">
-        <a href="<?php echo site_url('index.php/stock') ?>" class="w3-bar-item w3-button">April</a>
+        <a href="<?php echo site_url('index.php/staffstock') ?>" class="w3-bar-item w3-button">April</a>
         <a href="#" class="w3-bar-item w3-button">May</a>
         <a href="#" class="w3-bar-item w3-button">June</a>
-        <a href="<?php echo site_url('index.php/stock7') ?>" class="w3-bar-item w3-button">July</a>
+        <a href="<?php echo site_url('index.php/staffstock7') ?>" class="w3-bar-item w3-button">July</a>
         </div>
       </div>
     </div>
@@ -145,19 +144,39 @@ body{
 </div>
 </div> 
 </div>
+                   
+<!-- <form action="" method="post"> -->
+<button class="button" id="email" name="email">Email</button>
+<!-- </form> -->
+<script type="text/javascript">
+ $("#email").click(function (e){
+        e.preventDefault();
+        $.post({
+            //type: 'post',
+            url:'Staffstock7/email',
+            success:function(data){
+              // if(data == 'success'){
+                alert(data);
+              // }
+            }            
+        });
+        });
+</script>  
+
+  
   <div class="chart-container">
   <canvas id="bar-chartcanvas" width="850%" height="500%" style="position: center"></canvas>
 
  </div>
-  
-  <script>
+
+   <script>
     $(document).ready(function () {
-    showTotalGraph();
-    });
+ showTotalGraph();
+});
 
     function showTotalGraph(){
 	   // This is the database.php file we created earlier, its JSON output will be processed in this function
-     $.post("Stock/data",
+     $.post("Staffstock7/data",
     function (data){
        var jsonData = JSON.parse(data);
        // alert(jsonData[0].BloodType);
@@ -174,7 +193,7 @@ body{
        var options={
         title:{
           display:true,
-          text:'2019',
+          text:'July Stock',
           fontSize:18
         },
         layout:{
@@ -211,52 +230,23 @@ body{
       }     
       };
      
-  
-var chartdata = {
-  labels: ['April', 'May', 'June', 'July'],
-			datasets: [{
-				label: 'A+',
-				backgroundColor: '#F44336',
-				stack: 'Stack 0',
-				data: ['5', '4', '3', '5']
-			}, {
-				label: 'A-',
-				backgroundColor: '#F1948A',
-				stack: 'Stack 0',
-				data:['3', '4', '3', '5']
-			}, {
-				label: 'B+',
-				backgroundColor: '#33CC33 ',
-				stack: 'Stack 1',
-				data: ['3', '4', '3', '5']
-			}, {
-				label: 'B-',
-				backgroundColor: '#58D68D',
-				stack: 'Stack 1',
-				data: ['5', '1', '3', '2']
-			}, {
-				label: 'AB+',
-				backgroundColor: '#0000FF',
-				stack: 'Stack 2',
-				data:['5', '4', '3', '1']
-			}, {
-				label: 'AB-',
-				backgroundColor: '#90CAF9',
-				stack: 'Stack 2',
-				data: ['3', '4', '3', '5']
-			}, {
-				label: 'O+',
-				backgroundColor: '#FFEB3B',
-				stack: 'Stack 3',
-				data:['3', '4', '3', '5']
-			}, {
-				label: 'O-',
-				backgroundColor: '#FFF59D',
-				stack: 'Stack 3',
-				data: ['3', '4', '3', '5']
-			}]
+  var chartColors = {
+    red: 'rgb(252, 4, 11)',
+    green: 'rgb(13, 170, 11)',
+    yellow: 'rgb(252, 254, 11)'
+}
 
-		};
+var chartdata = {
+ labels:BloodTypeVar,
+    datasets: [{
+      label: 'Critical',
+      backgroundColor: [chartColors.red],
+      borderWidth:1,
+      borderColor:'#777',
+      hoverBorderWidth:3,
+      data: total
+    }]
+  };
       
   var graphTarget = $("#bar-chartcanvas"); 
         var barGraph = new Chart(graphTarget, {
@@ -264,13 +254,26 @@ var chartdata = {
             data: chartdata,
             options: options
   });
-  
+  var colorChangeValue = 4; //set this to whatever is the deciding color change value
+  var dataset = barGraph.data.datasets[0];
+  for (var i = 0; i < dataset.data.length; i++) {
+    if (dataset.data[i] < colorChangeValue) {
+      dataset.backgroundColor[i] = chartColors.red;
+      
+    }
+    else if ((dataset.data[i] >=4) && (dataset.data[i] < 5)){
+      dataset.backgroundColor[i] = chartColors.yellow;
+      
+    }
+    else{
+    dataset.backgroundColor[i] = chartColors.green;
+    }
+}
 barGraph.update();
     });
-
-    
 }
 </script>
+
 
  
 </body>

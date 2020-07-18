@@ -1,5 +1,23 @@
 <?php
-//header('Content-Type: application/json');
+defined('BASEPATH') OR exit('No direct script access allowed');
+
+class Staffyearly extends CI_Controller {
+
+	function __construct()
+	{
+		parent::__construct();
+		//load chart_model from model
+		$this->load->model('Model_yearly');
+	}
+	
+	function index()
+	{
+		$data['graph'] = $this->Model_yearly->graph();
+		$this->load->view('staffyearly');
+	}
+
+	public function data(){
+       //header('Content-Type: application/json');
         //declare variables for db connection
         $servername = "localhost";
         $username = "root";
@@ -28,7 +46,10 @@
         $result->close();
         $conn->close();
         // IMPORTANT, output to json
-        //echo json_encode($data);    
-        return json_encode($data);
+        echo json_encode($data);    
+        //return json_encode($data);
+	}
 
-?>
+	
+}
+

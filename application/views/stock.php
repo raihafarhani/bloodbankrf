@@ -112,6 +112,11 @@ body{
 
 /* Change the background color of the dropdown button when the dropdown content is shown */
 .dropdown:hover .dropbtn {background-color: #3e8e41;}
+.right {
+   position: absolute;
+   right: 10px;
+   
+            }
 </style>
  
 <body>
@@ -119,25 +124,13 @@ body{
 <div class="w3-top">
   <div class="w3-bar w3-card w3-left-align w3-large w3-red">
     <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-red" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
-    <a href="<?php echo site_url('index.php/mstaff') ?>" class="w3-bar-item w3-button w3-padding-large w3-white">Home</a>
-    <a href="<?php echo site_url('index.php/staff') ?>" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Staff</a>
-    <a href="<?php echo site_url('index.php/blood') ?>" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Blood</a>
+    <a class="w3-bar-item w3-button w3-padding-large w3-white">Admin</a>
+   <a href="<?php echo site_url('index.php') ?>" class="w3-bar-item w3-button w3-padding-large right w3-hover-white">Logout</a>
+   <a href="<?php echo site_url('index.php/staff') ?>" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Staff</a>
+   <a href="<?php echo site_url('index.php/blood') ?>" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Blood</a>
+   <a href="<?php echo site_url('index.php/donor') ?>" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Donor</a>
     <div class="w3-dropdown-hover">
-    <button class="w3-button">Donor</button>
-    <div class="w3-dropdown-content w3-bar-block w3-border">
-    <a href="<?php echo site_url('index.php/donor') ?>" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">All</a>
-    <a href="<?php echo site_url('index.php/donorAA') ?>" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">A+</a>
-    <a href="<?php echo site_url('index.php/donorA') ?>" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">A-</a>
-    <a href="<?php echo site_url('index.php/donorAABB') ?>" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">AB+</a>
-    <a href="<?php echo site_url('index.php/donorAB') ?>" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">AB-</a>
-    <a href="<?php echo site_url('index.php/donorBB') ?>" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">B+</a>
-    <a href="<?php echo site_url('index.php/donorB') ?>" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">B-</a>
-    <a href="<?php echo site_url('index.php/donorOO') ?>" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">O+</a>
-    <a href="<?php echo site_url('index.php/donorO') ?>" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">O-</a>
-    </div>
-    </div>
-    <div class="w3-dropdown-hover">
-    <button class="w3-button">Stock</button>
+    <button class=" w3-button w3-hide-small w3-padding-large w3-hover-white">Stock</button>
     <div class="w3-dropdown-content w3-bar-block w3-border">
         <a href="<?php echo site_url('index.php/yearly') ?>" class="w3-bar-item w3-button">Yearly</a>
         <button class="w3-button">Month</button>
@@ -147,13 +140,13 @@ body{
         <a href="#" class="w3-bar-item w3-button">June</a>
         <a href="<?php echo site_url('index.php/stock7') ?>" class="w3-bar-item w3-button">July</a>
         </div>
-        </div>
+      </div>
     </div>
-    <a href="<?php echo site_url('index.php/stock/logout/') ?>" class="w3-bar-item w3-button w3-padding-large w3-white right">Logout</a>
     
 </div>
 </div> 
 </div>
+ 
 <!-- <form action="" method="post"> -->
 <button class="button" id="email" name="email">Email</button>
 <!-- </form> -->
@@ -202,7 +195,7 @@ body{
        var options={
         title:{
           display:true,
-          text:'July Stock',
+          text:'April Stock',
           fontSize:18
         },
         layout:{
@@ -248,7 +241,7 @@ body{
 var chartdata = {
  labels:BloodTypeVar,
     datasets: [{
-      label: 'Sufficient',
+      label: 'Critical',
       backgroundColor: [chartColors.red],
       borderWidth:1,
       borderColor:'#777',
@@ -263,7 +256,6 @@ var chartdata = {
             data: chartdata,
             options: options
   });
-  msg = " Warning ! A-, O- and AB+ is low in stock";
   var colorChangeValue = 4; //set this to whatever is the deciding color change value
   var dataset = barGraph.data.datasets[0];
   for (var i = 0; i < dataset.data.length; i++) {
@@ -273,7 +265,7 @@ var chartdata = {
     }
     else if ((dataset.data[i] >=4) && (dataset.data[i] < 5)){
       dataset.backgroundColor[i] = chartColors.yellow;
-     alert (msg);
+      
     }
     else{
     dataset.backgroundColor[i] = chartColors.green;

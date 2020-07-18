@@ -2,13 +2,13 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?><!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}" xmlns:th="http://www.thymeleaf.org">
-<head>
-	<meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<title>Staff</title>
-	
-	<!--JQUERY-->
+        <title>Donor</title>
+
+        <!--JQUERY-->
 	<script
 		src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -16,7 +16,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-
+	
 	<!-- FRAMEWORK BOOTSTRAP para el estilo de la pagina-->
 	<link rel="stylesheet"
 		href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
@@ -46,11 +46,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	        //Asegurate que el id que le diste a la tabla sea igual al texto despues del simbolo #
 	        $('#userList').DataTable();
 	    } );
-
 	</script>
-    <style>
-	
-    /* Use a media query to add a break point at 800px: */
+        <!-- Styles -->
+        <style>
+            /* Use a media query to add a break point at 800px: */
 @media screen and (max-width:800px) {
   .left, .main, .right {
     width:100%; /* The width is 100%, when the viewport is 800px or smaller */
@@ -62,6 +61,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         float: none; /* Added */
         margin-bottom: 10px; /* Added */
 		 text-align: center;
+		 font-size:90%;
+}
+.card-header{font-size:90%;
 }
 
 body{
@@ -69,11 +71,45 @@ body{
 	margin-top: 90px;
 	margin-bottom: 30px;
 	margin-left: 0px;
-	margin-right: 500px;
+	margin-right: 400px;
+	
 }
-.w3-bar,h1,button {font-family: "Montserrat", sans-serif}
+tbody{font-size:80%;}
+/* Modal styles */
+.modal .modal-dialog {
+		max-width: 400px;
+	}
+	.modal .modal-header, .modal .modal-body, .modal .modal-footer {
+		padding: 20px 30px;
+	}
+	.modal .modal-content {
+		border-radius: 3px;
+	}
+	.modal .modal-footer {
+		background: #ecf0f1;
+		border-radius: 0 0 3px 3px;
+	}
+    .modal .modal-title {
+        display: inline-block;
+    }
+	.modal .form-control {
+		border-radius: 2px;
+		box-shadow: none;
+		border-color: #dddddd;
+	}
+	.modal textarea.form-control {
+		resize: vertical;
+	}
+	.modal .btn {
+		border-radius: 2px;
+		min-width: 100px;
+	}	
+	.modal form label {
+		font-weight: normal;
+	}	
+	.w3-bar,h1,button {font-family: "Montserrat", sans-serif}
 .fa-anchor,.fa-coffee {font-size:200px}
-/* Dropdown Button */
+ /* Dropdown Button */
 .dropbtn {
   background-color: #4CAF50;
   color: white;
@@ -130,20 +166,19 @@ body{
 <div class="w3-top">
   <div class="w3-bar w3-card w3-left-align w3-large w3-red">
     <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-red" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
-    <a class="w3-bar-item w3-button w3-padding-large w3-white">Admin</a>
+    <a class="w3-bar-item w3-button w3-padding-large w3-white">Staff</a>
    <a href="<?php echo site_url('index.php') ?>" class="w3-bar-item w3-button w3-padding-large right w3-hover-white">Logout</a>
-   <a href="<?php echo site_url('index.php/blood') ?>" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Blood</a>
-   <a href="<?php echo site_url('index.php/donor') ?>" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Donor</a>
-    <div class="w3-dropdown-hover">
+   <a href="<?php echo site_url('index.php/staffblood') ?>" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Blood</a>
+   <div class="w3-dropdown-hover">
     <button class=" w3-button w3-hide-small w3-padding-large w3-hover-white">Stock</button>
     <div class="w3-dropdown-content w3-bar-block w3-border">
-        <a href="<?php echo site_url('index.php/yearly') ?>" class="w3-bar-item w3-button">Yearly</a>
+        <a href="<?php echo site_url('index.php/staffyearly') ?>" class="w3-bar-item w3-button">Yearly</a>
         <button class="w3-button">Month</button>
         <div class="w3-dropdown-content w3-bar-block w3-border">
-        <a href="<?php echo site_url('index.php/stock') ?>" class="w3-bar-item w3-button">April</a>
+        <a href="<?php echo site_url('index.php/staffstock') ?>" class="w3-bar-item w3-button">April</a>
         <a href="#" class="w3-bar-item w3-button">May</a>
         <a href="#" class="w3-bar-item w3-button">June</a>
-        <a href="<?php echo site_url('index.php/stock7') ?>" class="w3-bar-item w3-button">July</a>
+        <a href="<?php echo site_url('index.php/staffstock7') ?>" class="w3-bar-item w3-button">July</a>
         </div>
       </div>
     </div>
@@ -151,7 +186,7 @@ body{
 </div>
 </div> 
 </div>
-<!-- Display Staff HTML -->
+    <!-- Display Staff HTML -->
     <div class="flex-center position-ref full-height">
 	<div class="container">
 	<div class="mx-auto col-sm-8 main-section" id="myTab" role="tablist">
@@ -160,15 +195,15 @@ body{
 			<a class="nav-link" id="list-tab" data-toggle="tab" href="#list" role="tab" aria-controls="list" aria-selected="false">List</a>
 			</li>
 			<li class="nav-item bg-danger">
-			<a class="nav-link" id="form-tab" data-toggle="tab" href="#form" role="tab" aria-controls="form" aria-selected="true">Add Staff</a>				   	
+			<a class="nav-link" id="form-tab" data-toggle="tab" href="#form" role="tab" aria-controls="form" aria-selected="true">Add Donor</a>				   	
 			</li>
 		</ul>
 		
 		<div class="tab-content" id="myTabContent">
 			<div class="tab-pane fade show active" id="list" role="tabpanel" aria-labelledby="list-tab">
-				<div class="card" style="width:1000px">
+				<div class="card" style="width:1100px">
 					<div class="card-header bg-danger text-white">
-						<h4>Staff List</h4>
+						<h4>Donor List</h4>
 					</div>
 					<div class="card-body">
 						<div class="table-responsive">
@@ -176,11 +211,16 @@ body{
 								<thead class="thead-light">
 								<tr>
 									<th scope="col">No</th>
-									<th scope="col">Staff ID</th>
-									<th scope="col">Staff Name</th>
-									<th scope="col">Staff Password</th>
-                                    <th scope="col">Contact Number</th>
-									<th scope="col">E-mail</th>
+                                    <th scope="col">Donor ID</th>
+									<th scope="col">Blood ID</th>
+									<th scope="col">First Name</th>
+                                    <th scope="col">Last Name</th>
+									<th scope="col">Password</th>
+                                    <th scope="col">IC Number</th>
+                                    <th scope="col">E-mail</th>
+                                    <th scope="col">Contact</th>
+									<th scope="col">Address</th>
+                                    <th scope="col">Blood Type</th>
 									<th></th>
 								</tr>
 								</thead>
@@ -188,67 +228,103 @@ body{
                                 <?php 
                                 $no = 1;
                                 foreach ($result as $r) { ?>
-								<tr>
-									<th><?php echo $no++ ?></th>
-									<td><?php echo $r['StaffID'] ?></td>
-									<td><?php echo $r['StaffName'] ?></td>
-									<td><?php echo $r['StaffPass'] ?></td>
-									<td><?php echo $r['ContactNum'] ?></td>
-                                    <td><?php echo $r['Email'] ?></td>
-									<td>
-                                    <a href="<?php echo site_url('index.php/staff/form_edit/' .$r['StaffID']) ?>"><i class="fas fa-edit"></i></a>
-                                    <a href="<?php echo site_url('index.php/staff/delete/' .$r['StaffID']) ?>"><i class="fas fa-user-times"></i></a>
+                                <tr>
+                                   <th><?php echo $no++ ?></th>
+                                   <td><?php echo $r['DonorID'] ?></td>
+                                   <td><?php echo $r['BloodID'] ?></td>
+                                   <td><?php echo $r['FName'] ?></td>
+                                   <td><?php echo $r['LName'] ?></td>
+                                   <td><?php echo $r['DonorPass'] ?></td>
+                                   <td><?php echo $r['ICNum'] ?></td>
+                                   <td><?php echo $r['Email'] ?></td>
+                                   <td><?php echo $r['ContactNum'] ?></td>
+                                   <td><?php echo $r['Address'] ?></td>
+                                   <td><?php echo $r['BloodType'] ?></td>
+                                   <td>
+                                   <a href="<?php echo site_url('index.php/staffdonor/form_edit/' .$r['DonorID']) ?>"><i class="fas fa-edit"></i></a>
+                                   <a href="<?php echo site_url('index.php/staffdonor/delete/' .$r['DonorID']) ?>"><i class="fas fa-user-times"></i></a>
                                     </td>
-									</tr>
-                                <?php } ?>
-								</tbody>
+                                    </tr>      
+                                    <?php } ?>    
+                                    </tbody>
 							</table>
 						</div>
 
 					</div>
 				</div>
 			</div>
-			<!-- Add Staff HTML -->
+        <!-- Add Staff HTML -->
 			<div class="tab-pane fade" id="form" role="tabpanel" aria-labelledby="form-tab">
 				<div class="card" style="width:1000px">
 					<div class="card-header">
-						<h4>Staff Information</h4>
+						<h4>Donor Information</h4>
 					</div>
 					<div class="card-body">
-                    <form action="<?php echo site_url('index.php/Staff/insert'); ?>" method="POST">
+                    <form action="<?php echo site_url('index.php/Staffdonor/insert'); ?>" method="POST">
 
 						<form class="form" role="form" autocomplete="off">
 							<div class="form-group row">
-								<label class="col-lg-3 col-form-label form-control-label">Staff Name</label>
+								<label class="col-lg-3 col-form-label form-control-label">Blood ID</label>
 								<div class="col-lg-9">
-									<input class="form-control" type="text" name="StaffName">
+									<input class="form-control" type="text" name="BloodID">
 								</div>
 							</div>
-							
-							<div class="form-group row">
-								<label class="col-lg-3 col-form-label form-control-label">Contact Number</label>
+                            <div class="form-group row">
+								<label class="col-lg-3 col-form-label form-control-label">First Name</label>
 								<div class="col-lg-9">
-									<input class="form-control" type="text" name="ContactNum">
+									<input class="form-control" type="text" name="FName">
+								</div>
+							</div>
+                            <div class="form-group row">
+								<label class="col-lg-3 col-form-label form-control-label">Last Name</label>
+								<div class="col-lg-9">
+									<input class="form-control" type="text" name="LName">
 								</div>
 							</div>
 							<div class="form-group row">
+								<label class="col-lg-3 col-form-label form-control-label">Password</label>
+								<div class="col-lg-9">
+									<input class="form-control" type="password" name="DonorPass">
+								</div>
+							</div>
+							<div class="form-group row">
+								<label class="col-lg-3 col-form-label form-control-label">IC Number</label>
+								<div class="col-lg-9">
+									<input class="form-control" type="text" name="ICNum">
+								</div>
+							</div>
+                            <div class="form-group row">
 								<label class="col-lg-3 col-form-label form-control-label">Email</label>
 								<div class="col-lg-9">
 									<input class="form-control" type="email" name="Email">
 								</div>
 							</div>
                             <div class="form-group row">
-								<label class="col-lg-3 col-form-label form-control-label">Staff Password</label>
+								<label class="col-lg-3 col-form-label form-control-label">Contact Number</label>
 								<div class="col-lg-9">
-									<input class="form-control" type="password" name="StaffPass">
+									<input class="form-control" type="text" name="ContactNum">
+								</div>
+							</div>
+                            <div class="form-group row">
+								<label class="col-lg-3 col-form-label form-control-label">Address</label>
+								<div class="col-lg-9">
+									<input class="form-control" type="text" name="Address">
 								</div>
 							</div>
 							
 							<div class="form-group row">
-								<label class="col-lg-3 col-form-label form-control-label">Confirm Password</label>
+								<label class="col-lg-3 col-form-label form-control-label">Blood Type</label>
 								<div class="col-lg-9">
-									<input class="form-control" type="password" name="StaffPass">
-								</div>
+                                <select id="BloodType" name="BloodType">
+                               <option value="A+">A+</option>
+                               <option value="A-">A-</option>
+                               <option value="B+">B+</option>
+                               <option value="B-">B-</option>
+                               <option value="O+">O+</option>
+                               <option value="O-">O-</option>
+                               <option value="AB+">AB+</option>
+                               <option value="AB-">AB-</option></select></br>
+                                </div>
 							</div>
 							<div class="form-group row">
 								<div class="col-lg-12 text-center">
@@ -265,12 +341,12 @@ body{
 			
 		
 	<!-- Delete Modal HTML -->
-	<div id="deleteStaffModal" class="modal fade">
+	<div id="deleteDonorModal" class="modal fade">
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<form>
 					<div class="modal-header">						
-						<h4 class="modal-title">Delete Staff</h4>
+						<h4 class="modal-title">Delete Donor</h4>
 						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 					</div>
 					<div class="modal-body">					

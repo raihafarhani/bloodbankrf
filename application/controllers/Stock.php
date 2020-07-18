@@ -96,7 +96,7 @@ class Stock extends CI_Controller {
         die("Connection failed: " . $conn->connect_error);
         } 
 		$sql = "SELECT BloodType, COUNT(BloodType) AS total 
-				FROM blood GROUP BY BloodType ORDER BY BloodType;";
+    FROM blood WHERE MONTH(DateIn) = '4' GROUP BY BloodType ORDER BY BloodType;";
 
         //run sql query and store into variable
         $result = mysqli_query($conn,$sql);
@@ -112,13 +112,7 @@ class Stock extends CI_Controller {
         // IMPORTANT, output to json
         echo json_encode($data);    
         //return json_encode($data);
-  }
-  
-  public function logout()
-  {
-      $this->session->sess_destroy();
-      redirect('index.php/welcome');
-  }
+	}
 	
 	
 }

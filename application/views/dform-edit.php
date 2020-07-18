@@ -51,6 +51,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <div id="login-box" class="col-md-12">
                  <?php if($editDonor){
                     $id = $editDonor->DonorID;
+                    $DonorID = $editDonor->DonorID;
                     $FName = $editDonor->FName;
                     $LName = $editDonor->LName;
                     $DonorPass = $editDonor->DonorPass;

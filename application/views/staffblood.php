@@ -1,22 +1,20 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?><!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-	<meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-	<title>Staff</title>
-	
-	<!--JQUERY-->
-	<script
-		src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<title>Blood</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-
+<!--JQUERY-->
+<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	
 	<!-- FRAMEWORK BOOTSTRAP para el estilo de la pagina-->
 	<link rel="stylesheet"
 		href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
@@ -46,11 +44,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	        //Asegurate que el id que le diste a la tabla sea igual al texto despues del simbolo #
 	        $('#userList').DataTable();
 	    } );
-
 	</script>
-    <style>
-	
-    /* Use a media query to add a break point at 800px: */
+        <!-- Styles -->
+        <style>
+       /* Use a media query to add a break point at 800px: */
 @media screen and (max-width:800px) {
   .left, .main, .right {
     width:100%; /* The width is 100%, when the viewport is 800px or smaller */
@@ -66,14 +63,45 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 body{
 	background-color: #800000;
-	margin-top: 90px;
+	margin-top: 70px;
 	margin-bottom: 30px;
 	margin-left: 0px;
 	margin-right: 500px;
-}
-.w3-bar,h1,button {font-family: "Montserrat", sans-serif}
-.fa-anchor,.fa-coffee {font-size:200px}
-/* Dropdown Button */
+}  
+           
+/* Modal styles */
+.modal .modal-dialog {
+		max-width: 400px;
+	}
+	.modal .modal-header, .modal .modal-body, .modal .modal-footer {
+		padding: 20px 30px;
+	}
+	.modal .modal-content {
+		border-radius: 3px;
+	}
+	.modal .modal-footer {
+		background: #F7B1A3;
+		border-radius: 0 0 3px 3px;
+	}
+    .modal .modal-title {
+        display: inline-block;
+    }
+	.modal .form-control {
+		border-radius: 2px;
+		box-shadow: none;
+		border-color: #dddddd;
+	}
+	.modal textarea.form-control {
+		resize: vertical;
+	}
+	.modal .btn {
+		border-radius: 2px;
+		min-width: 100px;
+	}	
+	.modal form label {
+		font-weight: normal;
+	}	
+    /* Dropdown Button */
 .dropbtn {
   background-color: #4CAF50;
   color: white;
@@ -117,12 +145,13 @@ body{
 .dropdown:hover .dropbtn {background-color: #3e8e41;}
 .right {
    position: absolute;
-   right: 10px;
-   
-            }
-			.nav-link {
+   right: 10px;}
+   .nav-link {
     color: white;
 }
+
+   
+            
 </style>
  
 <body>
@@ -130,20 +159,19 @@ body{
 <div class="w3-top">
   <div class="w3-bar w3-card w3-left-align w3-large w3-red">
     <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-red" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
-    <a class="w3-bar-item w3-button w3-padding-large w3-white">Admin</a>
+    <a class="w3-bar-item w3-button w3-padding-large w3-white">Staff</a>
    <a href="<?php echo site_url('index.php') ?>" class="w3-bar-item w3-button w3-padding-large right w3-hover-white">Logout</a>
-   <a href="<?php echo site_url('index.php/blood') ?>" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Blood</a>
-   <a href="<?php echo site_url('index.php/donor') ?>" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Donor</a>
+  <a href="<?php echo site_url('index.php/staffdonor') ?>" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Donor</a>
     <div class="w3-dropdown-hover">
     <button class=" w3-button w3-hide-small w3-padding-large w3-hover-white">Stock</button>
     <div class="w3-dropdown-content w3-bar-block w3-border">
-        <a href="<?php echo site_url('index.php/yearly') ?>" class="w3-bar-item w3-button">Yearly</a>
+        <a href="<?php echo site_url('index.php/staffyearly') ?>" class="w3-bar-item w3-button">Yearly</a>
         <button class="w3-button">Month</button>
         <div class="w3-dropdown-content w3-bar-block w3-border">
-        <a href="<?php echo site_url('index.php/stock') ?>" class="w3-bar-item w3-button">April</a>
+        <a href="<?php echo site_url('index.php/staffstock') ?>" class="w3-bar-item w3-button">April</a>
         <a href="#" class="w3-bar-item w3-button">May</a>
         <a href="#" class="w3-bar-item w3-button">June</a>
-        <a href="<?php echo site_url('index.php/stock7') ?>" class="w3-bar-item w3-button">July</a>
+        <a href="<?php echo site_url('index.php/staffstock7') ?>" class="w3-bar-item w3-button">July</a>
         </div>
       </div>
     </div>
@@ -151,7 +179,7 @@ body{
 </div>
 </div> 
 </div>
-<!-- Display Staff HTML -->
+        <!-- Display Staff HTML -->
     <div class="flex-center position-ref full-height">
 	<div class="container">
 	<div class="mx-auto col-sm-8 main-section" id="myTab" role="tablist">
@@ -160,7 +188,7 @@ body{
 			<a class="nav-link" id="list-tab" data-toggle="tab" href="#list" role="tab" aria-controls="list" aria-selected="false">List</a>
 			</li>
 			<li class="nav-item bg-danger">
-			<a class="nav-link" id="form-tab" data-toggle="tab" href="#form" role="tab" aria-controls="form" aria-selected="true">Add Staff</a>				   	
+			<a class="nav-link" id="form-tab" data-toggle="tab" href="#form" role="tab" aria-controls="form" aria-selected="true">Add Blood</a>				   	
 			</li>
 		</ul>
 		
@@ -168,7 +196,7 @@ body{
 			<div class="tab-pane fade show active" id="list" role="tabpanel" aria-labelledby="list-tab">
 				<div class="card" style="width:1000px">
 					<div class="card-header bg-danger text-white">
-						<h4>Staff List</h4>
+						<h4>Blood List</h4>
 					</div>
 					<div class="card-body">
 						<div class="table-responsive">
@@ -176,80 +204,89 @@ body{
 								<thead class="thead-light">
 								<tr>
 									<th scope="col">No</th>
-									<th scope="col">Staff ID</th>
-									<th scope="col">Staff Name</th>
-									<th scope="col">Staff Password</th>
-                                    <th scope="col">Contact Number</th>
-									<th scope="col">E-mail</th>
+									<th scope="col">Blood ID</th>
+                                    <th scope="col">Donor ID</th>
+									<th scope="col">Blood Type</th>
+									<th scope="col">Date In</th>
+                                    <th scope="col">Expiry Date</th>
+									<th scope="col">Date Out</th>
 									<th></th>
 								</tr>
 								</thead>
-								<tbody>
-                                <?php 
-                                $no = 1;
-                                foreach ($result as $r) { ?>
-								<tr>
-									<th><?php echo $no++ ?></th>
-									<td><?php echo $r['StaffID'] ?></td>
-									<td><?php echo $r['StaffName'] ?></td>
-									<td><?php echo $r['StaffPass'] ?></td>
-									<td><?php echo $r['ContactNum'] ?></td>
-                                    <td><?php echo $r['Email'] ?></td>
-									<td>
-                                    <a href="<?php echo site_url('index.php/staff/form_edit/' .$r['StaffID']) ?>"><i class="fas fa-edit"></i></a>
-                                    <a href="<?php echo site_url('index.php/staff/delete/' .$r['StaffID']) ?>"><i class="fas fa-user-times"></i></a>
-                                    </td>
-									</tr>
-                                <?php } ?>
-								</tbody>
-							</table>
-						</div>
+                                <tbody>
+                 <?php 
+                    $no = 1;
+                    foreach ($result as $r) { ?>
+                   <tr>
 
-					</div>
-				</div>
-			</div>
-			<!-- Add Staff HTML -->
+                   <td><?php echo $no++ ?></td>
+                   <td><?php echo $r['BloodID'] ?></td>
+                   <td><?php echo $r['DonorID'] ?></td>
+                   <td><?php echo $r['BloodType'] ?></td>
+                   <td><?php echo $r['DateIn'] ?></td>
+                   <td><?php echo $r['ExpiryDate'] ?></td>
+                   <td><?php echo $r['DateOut'] ?></td>
+                   <td>
+                   <a href="<?php echo site_url('index.php/staffblood/form_edit/' .$r['BloodID']) ?>"><i class="fas fa-edit"></i></a>
+                   <a href="<?php echo site_url('index.php/staffblood/delete/' .$r['BloodID']) ?>"><i class="fas fa-user-times"></i></a>
+                    </td>
+                   </tr>      
+                <?php } ?>    
+                </tbody>
+                </table>
+                </div>
+                </div>
+                </div>
+            </div>
+        <!-- Add Blood HTML -->
 			<div class="tab-pane fade" id="form" role="tabpanel" aria-labelledby="form-tab">
 				<div class="card" style="width:1000px">
 					<div class="card-header">
-						<h4>Staff Information</h4>
+						<h4>Blood Information</h4>
 					</div>
 					<div class="card-body">
-                    <form action="<?php echo site_url('index.php/Staff/insert'); ?>" method="POST">
+                    <form action="<?php echo site_url('index.php/Staffblood/insert'); ?>" method="POST">
 
 						<form class="form" role="form" autocomplete="off">
 							<div class="form-group row">
-								<label class="col-lg-3 col-form-label form-control-label">Staff Name</label>
+								<label class="col-lg-3 col-form-label form-control-label">Blood Type</label>
 								<div class="col-lg-9">
-									<input class="form-control" type="text" name="StaffName">
-								</div>
-							</div>
-							
-							<div class="form-group row">
-								<label class="col-lg-3 col-form-label form-control-label">Contact Number</label>
-								<div class="col-lg-9">
-									<input class="form-control" type="text" name="ContactNum">
-								</div>
-							</div>
-							<div class="form-group row">
-								<label class="col-lg-3 col-form-label form-control-label">Email</label>
-								<div class="col-lg-9">
-									<input class="form-control" type="email" name="Email">
+                                <select id="BloodType" name="BloodType">
+                               <option value="A+">A+</option>
+                               <option value="A-">A-</option>
+                               <option value="B+">B+</option>
+                               <option value="B-">B-</option>
+                               <option value="O+">O+</option>
+                               <option value="O-">O-</option>
+                               <option value="AB+">AB+</option>
+                               <option value="AB-">AB-</option></select>
 								</div>
 							</div>
                             <div class="form-group row">
-								<label class="col-lg-3 col-form-label form-control-label">Staff Password</label>
+								<label class="col-lg-3 col-form-label form-control-label">Donor ID</label>
 								<div class="col-lg-9">
-									<input class="form-control" type="password" name="StaffPass">
+									<input class="form-control" type="text" name="DonorID">
+								</div>
+							</div>
+							<div class="form-group row">
+								<label class="col-lg-3 col-form-label form-control-label">Date In</label>
+								<div class="col-lg-9">
+									<input class="form-control" type="date" name="DateIn">
+								</div>
+							</div>
+							<div class="form-group row">
+								<label class="col-lg-3 col-form-label form-control-label">Expiry Date</label>
+								<div class="col-lg-9">
+									<input class="form-control" type="date" name="ExpiryDate">
+								</div>
+							</div>
+                            <div class="form-group row">
+								<label class="col-lg-3 col-form-label form-control-label">Date Out</label>
+								<div class="col-lg-9">
+									<input class="form-control" type="date" name="DateOut">
 								</div>
 							</div>
 							
-							<div class="form-group row">
-								<label class="col-lg-3 col-form-label form-control-label">Confirm Password</label>
-								<div class="col-lg-9">
-									<input class="form-control" type="password" name="StaffPass">
-								</div>
-							</div>
 							<div class="form-group row">
 								<div class="col-lg-12 text-center">
 									<input type="reset" class="btn btn-secondary" value="Cancel">
@@ -263,14 +300,13 @@ body{
 			</div>
 			</div>
 			
-		
 	<!-- Delete Modal HTML -->
-	<div id="deleteStaffModal" class="modal fade">
+	<div id="deleteBloodModal" class="modal fade">
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<form>
 					<div class="modal-header">						
-						<h4 class="modal-title">Delete Staff</h4>
+						<h4 class="modal-title">Delete Blood</h4>
 						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 					</div>
 					<div class="modal-body">					
@@ -288,5 +324,5 @@ body{
 		</div>
 	</div>
 </div>
-</body>
-</html>
+    </body>
+    </html>
