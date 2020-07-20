@@ -68,7 +68,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <body>
     <div class="flex-center position-ref full-height">
                   <div class="top-right links">                   
-                  <a href="<?php echo site_url('Welcome/index') ?>">Logout</a>     
+                  <a href="<?php echo site_url('index.php') ?>">Logout</a>     
                    </div>  
                             
 

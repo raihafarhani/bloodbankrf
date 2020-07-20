@@ -76,8 +76,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 </div>
 
                 <div class="links">
-                    <a href="<?php echo site_url('index.php/staffregister') ?>">Staff</a>
-                    <a href="<?php echo site_url('index.php/register') ?>">Donor</a>
+                    <a href="<?php echo site_url('Staffregister/index') ?>">Staff</a>
+                    <a href="<?php echo site_url('Register/index') ?>">Donor</a>
                 </div>
             </div>
         </div>
