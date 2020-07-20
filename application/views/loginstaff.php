@@ -66,7 +66,7 @@ html, body {
                                 <input type="submit" name="login" class="btn btn-danger btn-md" value="Login">
                             </div>
                             <div id="register-link" class="text-right">
-                                <a href="<?php echo site_url('index.php/staffregister') ?>" class="text-danger">Register here</a>
+                                <a href="<?php echo site_url('StaffRegister/index') ?>" class="text-danger">Register here</a>
                             </div>
                         </form>
                     </div>
