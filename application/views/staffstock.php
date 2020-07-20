@@ -38,7 +38,8 @@
         margin: 0 auto; /* Added */
         float: none; /* Added */
         margin-bottom: 10px; /* Added */
-		 text-align: center;
+		    text-align: center;
+        
 }
 .button {
   background-color: red; 
@@ -53,7 +54,6 @@
 }
 body{
 	background-color: #FFFFFF;
-    position: center;
 	margin-top: 90px;
 	margin-bottom: 30px;
 	margin-left: 0px;
@@ -144,9 +144,7 @@ body{
 </div>
 </div> 
 </div>
-                   
-     
-  
+ 
 <!-- <form action="" method="post"> -->
 <button class="button" id="email" name="email">Email</button>
 <!-- </form> -->
