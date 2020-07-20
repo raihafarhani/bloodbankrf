@@ -18,11 +18,10 @@ class Staffstock7 extends CI_Controller {
 
   public function email() 
 	{
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "crud";
-
+    $servername = "us-cdbr-east-02.cleardb.com";
+        $username = "b3929acefa1880";
+        $password = "9cb4f060";
+        $dbname = "heroku_df17e234ec02982";
     //db connection
     $conn = new mysqli($servername, $username, $password, $dbname);
     $blood_type_arr = [];
@@ -83,10 +82,10 @@ class Staffstock7 extends CI_Controller {
 	public function data(){
        //header('Content-Type: application/json');
         //declare variables for db connection
-        $servername = "localhost";
-        $username = "root";
-        $password = "";
-        $dbname = "crud";
+        $servername = "us-cdbr-east-02.cleardb.com";
+        $username = "b3929acefa1880";
+        $password = "9cb4f060";
+        $dbname = "heroku_df17e234ec02982";
 
         //db connection
         $conn = new mysqli($servername, $username, $password, $dbname);
