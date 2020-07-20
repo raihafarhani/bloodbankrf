@@ -70,16 +70,24 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | The $query_builder variables lets you determine whether or not to load
 | the query builder class.
 */
+//Get Heroku ClearDB connection information
+$cleardb_url      = parse_url(getenv("CLEARDB_DATABASE_URL"));
+$cleardb_server   = $cleardb_url["host"];
+$cleardb_username = $cleardb_url["user"];
+$cleardb_password = $cleardb_url["pass"];
+$cleardb_db       = substr($cleardb_url["path"],1);
+
+
 $active_group = 'default';
 //Add this to fetch the CLEARDB_DATABASE_URL
 //$url = parse_url(getenv("CLEARDB_DATABASE_URL"));
 $query_builder = TRUE;
 $db['default'] = array(
     'dsn'    => '',
-    'hostname' => 'sql306.epizy.com',
-    'username' => 'epiz_26284127',
-    'password' => 'K74umHdX1F6v',
-    'database' => 'epiz_26284127_crud',
+    'hostname' => $cleardb_server,
+    'username' => $cleardb_username,
+    'password' => $cleardb_password,
+    'database' => $cleardb_db,
     'dbdriver' => 'mysqli',
     'dbprefix' => '',
     'pconnect' => FALSE,
