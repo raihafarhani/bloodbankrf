@@ -76,7 +76,7 @@ class Staffstock7 extends CI_Controller {
     $conn->close();
 
     
-    echo 'success';
+    echo 'Email sent';
   }
   
 	public function data(){
@@ -112,11 +112,6 @@ class Staffstock7 extends CI_Controller {
         //return json_encode($data);
 	}
 	
-	public function logout()
-  {
-      $this->session->sess_destroy();
-      //$this->load->view('welcome_message');
-      redirect('index.php');
-  }
+	
 }
 

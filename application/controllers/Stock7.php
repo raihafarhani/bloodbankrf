@@ -77,7 +77,7 @@ class Stock7 extends CI_Controller {
     $conn->close();
 
     
-    echo 'success';
+    echo 'Email sent';
   }
   
 	public function data(){

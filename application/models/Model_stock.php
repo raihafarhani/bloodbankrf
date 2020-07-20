@@ -24,8 +24,8 @@ class Model_stock extends CI_Model
         die("Connection failed: " . $conn->connect_error);
         } 
 		$sql = "SELECT BloodType, COUNT(BloodType) AS total 
-				FROM blood GROUP BY BloodType ORDER BY BloodType;";
-
+        FROM blood WHERE MONTH(DateIn) = '4' GROUP BY BloodType ORDER BY BloodType;";
+    
         //run sql query and store into variable
         $result = mysqli_query($conn,$sql);
         $data = array();

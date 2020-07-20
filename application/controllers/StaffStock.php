@@ -77,7 +77,7 @@ class Staffstock extends CI_Controller {
     $conn->close();
 
     
-    echo 'success';
+    echo 'Email sent';
   }
   
 	public function data(){
