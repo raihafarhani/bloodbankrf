@@ -23,7 +23,7 @@ class Register extends CI_Controller {
         $insert = $this->Model_register->processInsert('donor', $data);
         if($insert > 0){
             $this->session->set_flashdata('Success', 'Data saved');
-            redirect('index.php/Main');
+            redirect('index.php/Stock');
     } 
     else
     { 
