@@ -23,10 +23,10 @@ class LoginStaff extends CI_Controller {
                               'loger' => $select->StaffName);
                $this->session->set_userdata($data);
                if($select->StaffName == 'admin'){
-                redirect('admin');
+                redirect('index.php/stock');
                }
                else {
-                redirect('mstaff');
+                redirect('index.php/staffstock');
                }
             } 
                       

@@ -50,7 +50,7 @@ html, body {
                 <div id="login-column" class="col-md-6">
                     <div id="login-box" class="col-md-12">
                     
-                        <form id="login-form" class="form" action="LoginStaff/checklogin" method="POST">
+                        <form id="login-form" class="form" action="index.php/LoginStaff/checklogin" method="POST">
                         <h3 class="text-center text-danger">Staff Login</h3>
                             <div class="form-group">
                                 <label for="StaffName" class="text-danger">Staff Name:</label><br>
