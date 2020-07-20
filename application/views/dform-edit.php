@@ -52,6 +52,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                  <?php if($editDonor){
                     $id = $editDonor->DonorID;
                     $DonorID = $editDonor->DonorID;
+                    $BloodID = $editDonor->BloodID;
                     $FName = $editDonor->FName;
                     $LName = $editDonor->LName;
                     $DonorPass = $editDonor->DonorPass;
@@ -65,6 +66,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 } ?>
                  <form id="login-form" class="form" action="<?php echo site_url('index.php/Donor/update/'.$id); ?>" method="POST">
                  <h3 class="text-center text-danger">Donor Edit</h3>
+                 <div class="form-group">
+                    <label for="BloodID" class="text-danger">Blood ID</label><br>
+                    <input type="text" name="BloodID" value="<?php echo $BloodID ?>"/>
+                    </div>
                  <div class="form-group">
                     <label for="FName" class="text-danger">First Name</label><br>
                     <input type="text" name="FName" value="<?php echo $FName ?>"/>

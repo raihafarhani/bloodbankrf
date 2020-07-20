@@ -155,7 +155,7 @@ body{
         e.preventDefault();
         $.post({
             //type: 'post',
-            url:'StaffStock/email',
+            url:'Staffstock/email',
             success:function(data){
               // if(data == 'success'){
                 alert(data);
@@ -178,7 +178,7 @@ body{
 
     function showTotalGraph(){
 	   // This is the database.php file we created earlier, its JSON output will be processed in this function
-     $.post("StaffStock/data",
+     $.post("Staffstock/data",
     function (data){
        var jsonData = JSON.parse(data);
        // alert(jsonData[0].BloodType);
