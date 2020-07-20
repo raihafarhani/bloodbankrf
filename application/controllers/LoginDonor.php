@@ -25,7 +25,7 @@ class LoginDonor extends CI_Controller {
                 redirect('index.php/main');
                 } else {
                 $this->session->set_flashdata('error', 'Wrong id or password');
-                redirect('index.php/logindonor');
+                redirect('index.php/LoginDonor/index');
             }
 
         }
