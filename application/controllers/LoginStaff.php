@@ -26,7 +26,7 @@ class LoginStaff extends CI_Controller {
                 redirect('index.php/stock');
                }
                else {
-                redirect('index.php/staffstock');
+                redirect('index.php/StaffStock/index');
                }
             } 
                       
