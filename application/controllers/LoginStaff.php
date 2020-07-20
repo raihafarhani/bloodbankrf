@@ -16,7 +16,7 @@ class LoginStaff extends CI_Controller {
             $staff = $this->input->post('StaffName', true);
             $pass = $this->input->post('StaffPass', true);
             $check = $this->Model_loginstaff->processLogin($staff, $pass);
-            $hasil = count($check);
+            $hasil = @count($check);
             if($hasil > 0){
                $select = $this->db->get_where('staff', array('StaffName' => $staff, 'StaffPass' => $pass))->row();
                $data = array('logged_in' => true, 
