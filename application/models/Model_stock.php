@@ -23,7 +23,7 @@ class Model_stock extends CI_Model
     } 
       $sql = "SELECT BloodType
       FROM `blood`
-      WHERE MONTH(DateIn) ='4'
+      WHERE DateOut='0000-00-00' AND MONTH(DateIn) ='4'
       GROUP BY BloodType
       HAVING COUNT(*) <4";
 
