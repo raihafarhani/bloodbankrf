@@ -11,9 +11,9 @@ class Model_stock extends CI_Model
 	//header('Content-Type: application/json');
     //declare variables for db connection
     $servername = "us-cdbr-east-02.cleardb.com";
-        $username = "bbf3913a82d1f6";
-        $password = "404e6934";
-        $dbname = "heroku_46ccd4287bbadc3";
+        $username = "b734ac1014bfcb";
+        $password = "85fa5f9a";
+        $dbname = "heroku_988c5782bb605c9";
     //db connection
     $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -23,7 +23,7 @@ class Model_stock extends CI_Model
     } 
       $sql = "SELECT BloodType
       FROM `blood`
-      WHERE DateOut='0000-00-00' AND MONTH(DateIn) ='4'
+      WHERE MONTH(DateIn) ='4'
       GROUP BY BloodType
       HAVING COUNT(*) <4";
 
