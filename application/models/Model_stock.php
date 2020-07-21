@@ -10,10 +10,10 @@ class Model_stock extends CI_Model
 	public function graph(){
 	//header('Content-Type: application/json');
     //declare variables for db connection
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "crud";
+    $servername = "us-cdbr-east-02.cleardb.com";
+        $username = "bf602cb03061f4";
+        $password = "bb372a22";
+        $dbname = "heroku_4ac6bd4a954747c";
 
     //db connection
     $conn = new mysqli($servername, $username, $password, $dbname);

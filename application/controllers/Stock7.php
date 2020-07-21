@@ -18,10 +18,10 @@ class Stock7 extends CI_Controller {
 
   public function email() 
 	{
-    $servername = "localhost";
-        $username = "root";
-        $password = "";
-        $dbname = "crud";
+    $servername = "us-cdbr-east-02.cleardb.com";
+        $username = "bf602cb03061f4";
+        $password = "bb372a22";
+        $dbname = "heroku_4ac6bd4a954747c";
     //db connection
     $conn = new mysqli($servername, $username, $password, $dbname);
     $blood_type_arr = [];
@@ -83,10 +83,10 @@ class Stock7 extends CI_Controller {
 	public function data(){
        //header('Content-Type: application/json');
         //declare variables for db connection
-        $servername = "localhost";
-        $username = "root";
-        $password = "";
-        $dbname = "crud";
+        $servername = "us-cdbr-east-02.cleardb.com";
+        $username = "bf602cb03061f4";
+        $password = "bb372a22";
+        $dbname = "heroku_4ac6bd4a954747c";
 
         //db connection
         $conn = new mysqli($servername, $username, $password, $dbname);
