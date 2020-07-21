@@ -26,7 +26,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             #login .container #login-row #login-column #login-box {
   margin-top: 90px;
   max-width: 400px;
-  height: 730px;
+  height: 750px;
   border: 1px solid #800000;
   background-color: #EAEAEA;
 }

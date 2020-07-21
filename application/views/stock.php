@@ -241,7 +241,7 @@ body{
 var chartdata = {
  labels:BloodTypeVar,
     datasets: [{
-      label: 'Critical',
+      label: 'Sufficient',
       backgroundColor: [chartColors.red],
       borderWidth:1,
       borderColor:'#777',

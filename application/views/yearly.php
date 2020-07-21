@@ -228,12 +228,12 @@ var chartdata = {
 				label: 'B+',
 				backgroundColor: '#33CC33 ',
 				stack: 'Stack 1',
-				data: ['3', '4', '3', '5']
+				data: ['3', '5', '3', '5']
 			}, {
 				label: 'B-',
 				backgroundColor: '#58D68D',
 				stack: 'Stack 1',
-				data: ['5', '1', '3', '2']
+				data: ['6', '1', '1', '2']
 			}, {
 				label: 'AB+',
 				backgroundColor: '#0000FF',
@@ -243,17 +243,17 @@ var chartdata = {
 				label: 'AB-',
 				backgroundColor: '#90CAF9',
 				stack: 'Stack 2',
-				data: ['3', '4', '3', '5']
+				data: ['3', '4', '2', '5']
 			}, {
 				label: 'O+',
 				backgroundColor: '#FFEB3B',
 				stack: 'Stack 3',
-				data:['3', '4', '3', '5']
+				data:['3', '2', '3', '5']
 			}, {
 				label: 'O-',
 				backgroundColor: '#FFF59D',
 				stack: 'Stack 3',
-				data: ['3', '4', '3', '5']
+				data: ['3', '4', '4', '5']
 			}]
 
 		};

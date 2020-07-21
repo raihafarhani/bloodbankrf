@@ -18,11 +18,10 @@ class Stock7 extends CI_Controller {
 
   public function email() 
 	{
-    $servername = "us-cdbr-east-02.cleardb.com";
-        $username = "b3929acefa1880";
-        $password = "9cb4f060";
-        $dbname = "heroku_df17e234ec02982";
-
+    $servername = "localhost";
+        $username = "root";
+        $password = "";
+        $dbname = "crud";
     //db connection
     $conn = new mysqli($servername, $username, $password, $dbname);
     $blood_type_arr = [];
@@ -32,9 +31,10 @@ class Stock7 extends CI_Controller {
     } 
 
     $sql_blood = "SELECT COUNT(*) as 'Total', BloodType
-                  FROM `blood`
-                  GROUP BY BloodType
-                  HAVING COUNT(*) < 4";
+    FROM `blood`
+    WHERE MONTH(DateIn) NOT LIKE '7' AND MONTH(DateIn) NOT LIKE '6' AND MONTH(DateIn) NOT LIKE '5'
+    GROUP BY BloodType
+    HAVING COUNT(*) < 4";
     
     $blood_result = mysqli_query($conn,$sql_blood);
 
@@ -83,10 +83,10 @@ class Stock7 extends CI_Controller {
 	public function data(){
        //header('Content-Type: application/json');
         //declare variables for db connection
-        $servername = "us-cdbr-east-02.cleardb.com";
-        $username = "b3929acefa1880";
-        $password = "9cb4f060";
-        $dbname = "heroku_df17e234ec02982";
+        $servername = "localhost";
+        $username = "root";
+        $password = "";
+        $dbname = "crud";
 
         //db connection
         $conn = new mysqli($servername, $username, $password, $dbname);
@@ -95,8 +95,12 @@ class Stock7 extends CI_Controller {
         if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
         } 
-        $sql = "SELECT BloodType, COUNT(BloodType) AS total 
-        FROM blood WHERE MONTH(DateIn) = '7' GROUP BY BloodType ORDER BY BloodType;";
+        $sql = "SELECT COUNT(*) as total, BloodType
+                FROM `blood`
+                WHERE DateOut='0000-00-00' AND MONTH(DateIn) ='7'
+                GROUP BY BloodType
+                ORDER BY BloodType";
+
         //run sql query and store into variable
         $result = mysqli_query($conn,$sql);
         $data = array();
@@ -113,11 +117,5 @@ class Stock7 extends CI_Controller {
         //return json_encode($data);
 	}
 	
-	public function logout()
-  {
-      $this->session->sess_destroy();
-      //$this->load->view('welcome_message');
-      redirect('index.php');
-  }
 }
 

@@ -149,6 +149,7 @@ body{
    .nav-link {
     color: white;
 }
+.checkbox{position : right}
 
    
             
@@ -282,10 +283,11 @@ body{
 								</div>
 							</div>
                             <div class="form-group row">
-								<label class="col-lg-3 col-form-label form-control-label">Date Out</label>
+								<label class="col-lg-3 col-form-label form-control-label">Date Out (not required)</label>
 								<div class="col-lg-9">
-									<input class="form-control" type="date" name="DateOut">
+								    <input class="form-control" type="date" name="DateOut">
 								</div>
+								
 							</div>
 							
 							<div class="form-group row">

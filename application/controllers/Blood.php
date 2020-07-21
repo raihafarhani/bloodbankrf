@@ -27,7 +27,7 @@ class Blood extends CI_Controller {
 		$BloodType = $_POST['BloodType'];
 		$DateIn = $_POST['DateIn'];
 		$ExpiryDate = $_POST['ExpiryDate'];
-		$DateOut = $_POST['DateOut'];
+		$DateOut = (isset($_POST['DateOut'])) ? $_POST['DateOut'] : NULL;
 		$data = array('DonorID' => $DonorID,'BloodType' => $BloodType,  'DateIn' => $DateIn, 'ExpiryDate' => $ExpiryDate, 'DateOut' => $DateOut  );
 		$add = $this->Model_bcrud->addBlood('blood', $data);
         if($add > 0){
@@ -61,7 +61,7 @@ class Blood extends CI_Controller {
 		$BloodType = $_POST['BloodType'];
 		$DateIn = $_POST['DateIn'];
 		$ExpiryDate = $_POST['ExpiryDate'];
-		$DateOut = $_POST['DateOut'];
+		$DateOut = (isset($_POST['DateOut'])) ? $_POST['DateOut'] : NULL;
 		$data = array('DonorID' => $DonorID,'BloodType' => $BloodType, 'DateIn' => $DateIn, 'ExpiryDate' => $ExpiryDate, 'DateOut' => $DateOut);
 		$edit = $this->Model_bcrud->dataEdit('blood', $data, $id);
         if($edit > 0){
