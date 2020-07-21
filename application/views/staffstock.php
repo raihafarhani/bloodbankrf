@@ -51,13 +51,14 @@
   text-decoration: none;
   display: inline-block;
   font-size: 14px;
+  position:relative; left:100px; top:2px;
 }
 body{
 	background-color: #FFFFFF;
 	margin-top: 90px;
 	margin-bottom: 30px;
 	margin-left: 0px;
-	margin-right: 100px;
+	margin-right: 500px;
 }
 .center {
   margin: 0;
@@ -239,7 +240,7 @@ body{
 var chartdata = {
  labels:BloodTypeVar,
     datasets: [{
-      label: 'Critical',
+      label: 'Sufficient',
       backgroundColor: [chartColors.red],
       borderWidth:1,
       borderColor:'#777',

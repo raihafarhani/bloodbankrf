@@ -38,7 +38,8 @@
         margin: 0 auto; /* Added */
         float: none; /* Added */
         margin-bottom: 10px; /* Added */
-		 text-align: center;
+		    text-align: center;
+        
 }
 .button {
   background-color: red; 
@@ -50,14 +51,14 @@
   text-decoration: none;
   display: inline-block;
   font-size: 14px;
+  position:relative; left:100px; top:2px;
 }
 body{
 	background-color: #FFFFFF;
-    position: center;
 	margin-top: 90px;
 	margin-bottom: 30px;
 	margin-left: 0px;
-	margin-right: 100px;
+	margin-right: 500px;
 }
 .center {
   margin: 0;
@@ -145,9 +146,7 @@ body{
 </div>
 </div> 
 </div>
-                   
-     
-  
+ 
 <!-- <form action="" method="post"> -->
 <button class="button" id="email" name="email">Email</button>
 <!-- </form> -->
@@ -166,16 +165,16 @@ body{
         });
 </script>  
 
-  
+
   <div class="chart-container">
   <canvas id="bar-chartcanvas" width="850%" height="500%" style="position: center"></canvas>
 
  </div>
-
-   <script>
+  
+  <script>
     $(document).ready(function () {
- showTotalGraph();
-});
+    showTotalGraph();
+    });
 
     function showTotalGraph(){
 	   // This is the database.php file we created earlier, its JSON output will be processed in this function
@@ -242,7 +241,7 @@ body{
 var chartdata = {
  labels:BloodTypeVar,
     datasets: [{
-      label: 'Critical',
+      label: 'Sufficient',
       backgroundColor: [chartColors.red],
       borderWidth:1,
       borderColor:'#777',
@@ -274,9 +273,10 @@ var chartdata = {
 }
 barGraph.update();
     });
+
+    
 }
 </script>
-
 
  
 </body>
