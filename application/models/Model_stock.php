@@ -11,9 +11,9 @@ class Model_stock extends CI_Model
 	//header('Content-Type: application/json');
     //declare variables for db connection
     $servername = "us-cdbr-east-02.cleardb.com";
-        $username = "b734ac1014bfcb";
-        $password = "85fa5f9a";
-        $dbname = "heroku_988c5782bb605c9";
+        $username = "bea3f1752ad8a1";
+        $password = "f7dc82a8";
+        $dbname = "heroku_dbb64967b3a3410";
     //db connection
     $conn = new mysqli($servername, $username, $password, $dbname);
 
