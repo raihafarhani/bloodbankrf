@@ -71,11 +71,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | the query builder class.
 */
 //Get Heroku ClearDB connection information
-// $cleardb_url      = parse_url(getenv("CLEARDB_DATABASE_URL"));
-// $cleardb_server   = $cleardb_url["host"];
-// $cleardb_username = $cleardb_url["user"];
-// $cleardb_password = $cleardb_url["pass"];
-// $cleardb_db       = substr($cleardb_url["path"],1);
+$cleardb_url      = parse_url(getenv("CLEARDB_DATABASE_URL"));
+$cleardb_server   = $cleardb_url["host"];
+$cleardb_username = $cleardb_url["user"];
+$cleardb_password = $cleardb_url["pass"];
+$cleardb_db       = substr($cleardb_url["path"],1);
 
 
 $active_group = 'default';
@@ -84,14 +84,14 @@ $active_group = 'default';
 $query_builder = TRUE;
 $db['default'] = array(
     'dsn'    => '',
-    // 'hostname' => $cleardb_server,
-    // 'username' => $cleardb_username,
-    // 'password' => $cleardb_password,
-    // 'database' => $cleardb_db,
-    'hostname' => 'us-cdbr-east-02.cleardb.com',
-    'username' => 'bea3f1752ad8a1',
-    'password' => 'f7dc82a8',
-    'database' => 'heroku_dbb64967b3a3410',
+    'hostname' => $cleardb_server,
+    'username' => $cleardb_username,
+    'password' => $cleardb_password,
+    'database' => $cleardb_db,
+    // 'hostname' => 'us-cdbr-east-02.cleardb.com',
+    // 'username' => 'bea3f1752ad8a1',
+    // 'password' => 'f7dc82a8',
+    // 'database' => 'heroku_dbb64967b3a3410',
     'dbdriver' => 'mysqli',
     'dbprefix' => '',
     'pconnect' => FALSE,
