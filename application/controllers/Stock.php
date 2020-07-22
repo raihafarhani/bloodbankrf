@@ -34,7 +34,7 @@ class Stock extends CI_Controller {
     $sql_blood = "SELECT COUNT(*) as 'Total', BloodType
     FROM `blood`
     GROUP BY BloodType
-    HAVING COUNT(*) < 4";
+    HAVING COUNT(*) < 10";
     
     $blood_result = mysqli_query($sql_blood);
 
