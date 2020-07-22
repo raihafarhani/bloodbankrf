@@ -19,6 +19,7 @@ class Stock extends CI_Controller {
   public function email() 
 	{
     $this->load->library('email');
+    $this->load->config('email');
 
     $sql_blood = "SELECT COUNT(*) as 'Total', BloodType
     FROM `blood`
@@ -49,7 +50,7 @@ class Stock extends CI_Controller {
                                 Our blood bank is in very short supply. Therefore, please come to your nearest hospital to make donation.
                                 Thank you very much.');
         $this->email->send();
-        $this->load->view('stock');
+        
       }
 
     }
@@ -64,9 +65,9 @@ class Stock extends CI_Controller {
        //header('Content-Type: application/json');
         //declare variables for db connection
         $servername = "us-cdbr-east-02.cleardb.com";
-        $username = "b5049045c0848c";
-        $password = "778bbdb0";
-        $dbname = "heroku_6550b13bdf95973";
+        $username = "b8ea5e0a16ab9f";
+        $password = "dac23453";
+        $dbname = "heroku_76d614326cca8b2";
 
         //db connection
         $conn = new mysqli($servername, $username, $password, $dbname);
