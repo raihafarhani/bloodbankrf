@@ -157,7 +157,7 @@ body{
 
     function showTotalGraph(){
 	   // This is the database.php file we created earlier, its JSON output will be processed in this function
-     $.post("Stock/data",
+     $.post("Yearly/data",
     function (data){
        var jsonData = JSON.parse(data);
        // alert(jsonData[0].BloodType);

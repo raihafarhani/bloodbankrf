@@ -54,5 +54,5 @@ class Yearly extends CI_Controller {
 	}
 
 	
-}
+
 
