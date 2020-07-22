@@ -162,12 +162,12 @@ body{
        var jsonData = JSON.parse(data);
        // alert(jsonData[0].BloodType);
         // Declare the variables for your graph (for X and Y Axis) 
-        var BloodTypeVar = []; // X Axis Label
+        var MonthVar = []; // X Axis Label
         var total = []; // Value and Y Axis basis
 
         for (var i = 0; i < Object.keys(jsonData).length; i++) {
             // formStatus is taken from JSON output (see above)
-            BloodTypeVar.push(jsonData[i].BloodType);
+            MonthVar.push(jsonData[i].MONTH(DateIn));
             total.push(jsonData[i].total);
         }
 
@@ -205,58 +205,24 @@ body{
         xAxes: [{
           scaleLabel: {
             display: true,
-            labelString: 'Blood Type'
+            labelString: 'Month'
           }
         }]
       }     
       };
      
   
-var chartdata = {
-  labels: ['April', 'May', 'June', 'July'],
-			datasets: [{
-				label: 'A+',
-				backgroundColor: '#F44336',
-				stack: 'Stack 0',
-				data: ['5', '4', '3', '5']
-			}, {
-				label: 'A-',
-				backgroundColor: '#F1948A',
-				stack: 'Stack 0',
-				data:['3', '4', '3', '5']
-			}, {
-				label: 'B+',
-				backgroundColor: '#33CC33 ',
-				stack: 'Stack 1',
-				data: ['3', '5', '3', '5']
-			}, {
-				label: 'B-',
-				backgroundColor: '#58D68D',
-				stack: 'Stack 1',
-				data: ['6', '1', '1', '2']
-			}, {
-				label: 'AB+',
-				backgroundColor: '#0000FF',
-				stack: 'Stack 2',
-				data:['5', '4', '3', '1']
-			}, {
-				label: 'AB-',
-				backgroundColor: '#90CAF9',
-				stack: 'Stack 2',
-				data: ['3', '4', '2', '5']
-			}, {
-				label: 'O+',
-				backgroundColor: '#FFEB3B',
-				stack: 'Stack 3',
-				data:['3', '2', '3', '5']
-			}, {
-				label: 'O-',
-				backgroundColor: '#FFF59D',
-				stack: 'Stack 3',
-				data: ['3', '4', '4', '5']
-			}]
-
-		};
+      var chartdata = {
+ labels:MonthVar,
+    datasets: [{
+      label: 'Stock',
+      backgroundColor: [chartColors.green],
+      borderWidth:1,
+      borderColor:'#777',
+      hoverBorderWidth:3,
+      data: total
+    }]
+  };
       
   var graphTarget = $("#bar-chartcanvas"); 
         var barGraph = new Chart(graphTarget, {

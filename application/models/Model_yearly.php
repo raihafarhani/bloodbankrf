@@ -23,8 +23,10 @@ class Model_yearly extends CI_Model
         if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
         } 
-		$sql = "SELECT BloodType, COUNT(BloodType) AS total 
-				FROM blood GROUP BY BloodType ORDER BY BloodType;";
+		$sql = "SELECT COUNT(*) as total, BloodType, MONTH(DateIn)
+        FROM `blood`
+        GROUP BY MONTH(DateIn)
+        ORDER BY BloodType;";
 
         //run sql query and store into variable
         $result = mysqli_query($conn,$sql);
