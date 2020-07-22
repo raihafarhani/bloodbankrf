@@ -12,7 +12,7 @@ class Yearly extends CI_Controller {
 	
 	function index()
 	{
-		$data['graph'] = $this->Model_yearly->graph();
+		//$data['graph'] = $this->Model_yearly->graph();
 		$this->load->view('yearly');
 	}
 
