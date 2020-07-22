@@ -32,9 +32,9 @@ class Yearly extends CI_Controller {
      die("Connection failed: " . $conn->connect_error);
      } 
      $sql = "SELECT COUNT(*) as total, MONTH(DateIn) as months
-     FROM `blood`
-     GROUP BY MONTH(DateIn)
-     ORDER BY BloodType";
+            FROM `blood`
+            GROUP BY MONTH(DateIn)
+            ORDER BY BloodType";
 
      //run sql query and store into variable
      $result = mysqli_query($conn,$sql);
@@ -51,6 +51,7 @@ class Yearly extends CI_Controller {
      echo json_encode($data);    
      //return json_encode($data);
 }
+
 	}
 
 	

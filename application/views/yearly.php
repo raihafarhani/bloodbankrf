@@ -162,12 +162,12 @@ body{
        var jsonData = JSON.parse(data);
        // alert(jsonData[0].BloodType);
         // Declare the variables for your graph (for X and Y Axis) 
-        var MonthVar = []; // X Axis Label
+        var monthsVar = []; // X Axis Label
         var total = []; // Value and Y Axis basis
 
         for (var i = 0; i < Object.keys(jsonData).length; i++) {
             // formStatus is taken from JSON output (see above)
-            MonthVar.push(jsonData[i].months);
+            monthsVar.push(jsonData[i].months);
             total.push(jsonData[i].total);
         }
 
@@ -213,7 +213,7 @@ body{
      
   
       var chartdata = {
- labels:MonthVar,
+ labels:monthsVar,
     datasets: [{
       label: 'Stock',
       backgroundColor: [chartColors.green],
