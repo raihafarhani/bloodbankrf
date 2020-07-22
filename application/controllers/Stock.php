@@ -18,8 +18,18 @@ class Stock extends CI_Controller {
 
   public function email() 
 	{
-    $this->load->library('email');
-    $this->load->config('email');
+    $this->load-> config('email');
+    $servername = "smtp.gmail.com";
+        $username = "bloodbankrf@gmail.com";
+        $password = "BloodbankRF123";
+        
+    //db connection
+    $conn = new mysqli($servername, $username, $password);
+    $blood_type_arr = [];
+    //error handling
+    if ($conn->connect_error) {
+      die("Connection failed: " . $conn->connect_error);
+    } 
 
     $sql_blood = "SELECT COUNT(*) as 'Total', BloodType
     FROM `blood`
@@ -42,6 +52,7 @@ class Stock extends CI_Controller {
       foreach($result as $row){
         $test = $row['Email'];
         // $data[] = $row;
+        
         
         $this->email->from('bloodbankrf@gmail.com', 'BloodBank');
         $this->email->to($row['Email']);
