@@ -20,16 +20,6 @@ class Stock extends CI_Controller {
 	{
     $this->load->library('email');
 
-    $this->email->initialize(array(
-      'protocol' => 'smtp',
-      'smtp_host' => 'smtp.sendgrid.net',
-      'smtp_user' => 'app178563653@heroku.com',
-      'smtp_pass' => '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',
-      'smtp_port' => 587,
-      'crlf' => "\r\n",
-      'newline' => "\r\n"
-    ));
-
     $sql_blood = "SELECT COUNT(*) as 'Total', BloodType
     FROM `blood`
     WHERE MONTH(DateIn) ='4'
@@ -61,8 +51,6 @@ class Stock extends CI_Controller {
                                 Thank you very much.');
         $this->email->send();
 
-        echo $this->email->print_debugger();
-               
       }
 
     }

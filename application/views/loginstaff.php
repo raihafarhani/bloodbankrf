@@ -53,8 +53,8 @@ html, body {
                         <form id="login-form" class="form" action="<?php echo site_url('index.php/LoginStaff/checklogin') ?>" method="POST">
                         <h3 class="text-center text-danger">Staff Login</h3>
                             <div class="form-group">
-                                <label for="StaffName" class="text-danger">Staff Name:</label><br>
-                                <input type="text" name="StaffName" id="StaffName" class="form-control" value="Admin/Staff">
+                                <label for="StaffName" class="text-danger">Admin/Staff Name:</label><br>
+                                <input type="text" name="StaffName" id="StaffName" class="form-control">
                             </div>
                             <div class="form-group">
                                 <label for="StaffPass" class="text-danger">Password:</label><br>
