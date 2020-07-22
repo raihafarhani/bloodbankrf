@@ -12,7 +12,7 @@ class Yearly extends CI_Controller {
 	
 	function index()
 	{
-		//$data['graph'] = $this->Model_yearly->graph();
+		$data['graph'] = $this->Model_yearly->graph();
 		$this->load->view('yearly');
 	}
 
@@ -20,9 +20,9 @@ class Yearly extends CI_Controller {
     //header('Content-Type: application/json');
      //declare variables for db connection
      $servername = "us-cdbr-east-02.cleardb.com";
-     $username = "b5049045c0848c";
-     $password = "778bbdb0";
-     $dbname = "heroku_6550b13bdf95973";
+        $username = "b5049045c0848c";
+        $password = "778bbdb0";
+        $dbname = "heroku_6550b13bdf95973";
 
      //db connection
      $conn = new mysqli($servername, $username, $password, $dbname);
