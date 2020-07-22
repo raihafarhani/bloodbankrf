@@ -22,7 +22,6 @@ class Stock extends CI_Controller {
 
     $sql_blood = "SELECT COUNT(*) as 'Total', BloodType
     FROM `blood`
-    WHERE MONTH(DateIn) ='4'
     GROUP BY BloodType
     HAVING COUNT(*) < 4";
     
@@ -50,7 +49,7 @@ class Stock extends CI_Controller {
                                 Our blood bank is in very short supply. Therefore, please come to your nearest hospital to make donation.
                                 Thank you very much.');
         $this->email->send();
-
+        $this->load->view('stock');
       }
 
     }
