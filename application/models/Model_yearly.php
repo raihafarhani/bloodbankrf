@@ -26,7 +26,7 @@ class Model_yearly extends CI_Model
 		$sql = "SELECT COUNT(*) as total, MONTH(DateIn) as months
         FROM `blood`
         GROUP BY MONTH(DateIn)
-        ORDER BY BloodType;";
+        ORDER BY BloodType";
 
         //run sql query and store into variable
         $result = mysqli_query($conn,$sql);
@@ -41,7 +41,7 @@ class Model_yearly extends CI_Model
         $conn->close();
         // IMPORTANT, output to json
         //echo json_encode($data);    
-        return json_encode($data);
+        //return json_encode($data);
 	}
 }
 ?>

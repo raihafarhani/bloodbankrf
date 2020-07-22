@@ -166,7 +166,7 @@ body{
 
         for (var i = 0; i < Object.keys(jsonData).length; i++) {
             // formStatus is taken from JSON output (see above)
-            monthsVar.push(jsonData[i].months;
+            monthsVar.push(jsonData[i].months);
             total.push(jsonData[i].total);
         }
 
@@ -209,6 +209,11 @@ body{
         }]
       }     
       };
+      var chartColors = {
+    red: 'rgb(252, 4, 11)',
+    green: 'rgb(13, 170, 11)',
+    yellow: 'rgb(252, 254, 11)'
+}
      
   
       var chartdata = {

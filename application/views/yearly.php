@@ -210,7 +210,11 @@ body{
         }]
       }     
       };
-     
+      var chartColors = {
+    red: 'rgb(252, 4, 11)',
+    green: 'rgb(13, 170, 11)',
+    yellow: 'rgb(252, 254, 11)'
+}   
   
       var chartdata = {
  labels:monthsVar,
