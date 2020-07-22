@@ -18,17 +18,17 @@ class Stock extends CI_Controller {
 
   public function email() 
 	{
-    $servername = "us-cdbr-east-02.cleardb.com";
-        $username = "b5049045c0848c";
-        $password = "778bbdb0";
-        $dbname = "heroku_6550b13bdf95973";
-    //db connection
-    $conn = new mysqli($servername, $username, $password, $dbname);
-    $blood_type_arr = [];
-    //error handling
-    if ($conn->connect_error) {
-      die("Connection failed: " . $conn->connect_error);
-    } 
+    $this->load->library('email');
+
+    $this->email->initialize(array(
+      'protocol' => 'smtp',
+      'smtp_host' => 'smtp.sendgrid.net',
+      'smtp_user' => 'app178563653@heroku.com',
+      'smtp_pass' => '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',
+      'smtp_port' => 587,
+      'crlf' => "\r\n",
+      'newline' => "\r\n"
+    ));
 
     $sql_blood = "SELECT COUNT(*) as 'Total', BloodType
     FROM `blood`
@@ -36,7 +36,7 @@ class Stock extends CI_Controller {
     GROUP BY BloodType
     HAVING COUNT(*) < 4";
     
-    $blood_result = mysqli_query($conn,$sql_blood);
+    $blood_result = mysqli_query($sql_blood);
 
     foreach($blood_result as $blood_row){
       //$type = $blood_row['BloodType'];
@@ -47,32 +47,29 @@ class Stock extends CI_Controller {
     foreach($blood_type_arr as $type){
       $sql = "SELECT Email FROM donor WHERE BloodType = '$type'";
       //run sql query and store into variable
-      $result = mysqli_query($conn, $sql);
+      $result = mysqli_query($sql);
 
       foreach($result as $row){
         $test = $row['Email'];
         // $data[] = $row;
         
-        //the subject
-        $sub = "Hospital Jasin's Blood Bank";
-        //the message
-        $msg = "Dear Mr/Mrs, 
-        Our blood bank is in very short supply. Therefore, please come to your nearest hospital to make donation.
-        Thank you very much.";
-        //recipient email here
-        $rec = $row['Email'];
-        //send email
-        mail($rec,$sub,$msg);
-        
+        $this->email->from('bloodbankrf@gmail.com', 'BloodBank');
+        $this->email->to($row['Email']);
+        $this->email->subject('Blood Bank');
+        $this->email->message('Dear Mr/Mrs, 
+                                Our blood bank is in very short supply. Therefore, please come to your nearest hospital to make donation.
+                                Thank you very much.');
+        $this->email->send();
+
+        echo $this->email->print_debugger();
+               
       }
 
     }
 
     $blood_result->close();
     $result->close();
-    $conn->close();
-
-    
+       
     echo 'Email sent';
   }
   
