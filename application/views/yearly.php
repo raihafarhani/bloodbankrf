@@ -167,7 +167,7 @@ body{
 
         for (var i = 0; i < Object.keys(jsonData).length; i++) {
             // formStatus is taken from JSON output (see above)
-            MonthVar.push(jsonData[i].MONTH(DateIn));
+            MonthVar.push(jsonData[i].months);
             total.push(jsonData[i].total);
         }
 

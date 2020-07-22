@@ -31,7 +31,7 @@ class Yearly extends CI_Controller {
      if ($conn->connect_error) {
      die("Connection failed: " . $conn->connect_error);
      } 
-     $sql = "SELECT COUNT(*) as total, BloodType, MONTH(DateIn)
+     $sql = "SELECT COUNT(*) as total, MONTH(DateIn) as months
               FROM `blood`
               GROUP BY MONTH(DateIn)
               ORDER BY BloodType";
