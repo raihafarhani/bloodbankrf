@@ -54,7 +54,7 @@ html, body {
                         <h3 class="text-center text-danger">Staff Login</h3>
                             <div class="form-group">
                                 <label for="StaffName" class="text-danger">Staff Name:</label><br>
-                                <input type="text" name="StaffName" id="StaffName" class="form-control">
+                                <input type="text" name="StaffName" id="StaffName" class="form-control" value="Admin/Staff">
                             </div>
                             <div class="form-group">
                                 <label for="StaffPass" class="text-danger">Password:</label><br>
