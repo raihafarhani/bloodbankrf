@@ -116,6 +116,7 @@ class Staffstock extends CI_Controller {
         // IMPORTANT, output to json
         echo json_encode($data);    
         //return json_encode($data);
+        
 	}
 	
 	
