@@ -220,7 +220,7 @@ body{
  labels:monthsVar,
     datasets: [{
       label: 'Stock',
-      backgroundColor: [chartColors.green],
+      backgroundColor: [chartColors.green, chartColors.green, chartColors.green, chartColors.green],
       borderWidth:1,
       borderColor:'#777',
       hoverBorderWidth:3,

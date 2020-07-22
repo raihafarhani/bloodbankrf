@@ -25,8 +25,7 @@ class Model_yearly extends CI_Model
         } 
 		$sql = "SELECT COUNT(*) as total, MONTH(DateIn) as months
         FROM `blood`
-        GROUP BY MONTH(DateIn)
-        ORDER BY BloodType";
+        GROUP BY MONTH(DateIn)";
 
         //run sql query and store into variable
         $result = mysqli_query($conn,$sql);
